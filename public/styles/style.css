@@ -1,0 +1,33 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans", sans-serif;
+  font-size: 100%;
+  width: 596px;
+  height: 453px;
+  box-sizing: border-box;
+}
+.main-div {
+  overflow-y: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.title {
+  font-weight: bold;
+  font-size: 22px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pages-block{
+  width: 580px;
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items:stretch;
+}
+.active{
+  border-bottom: 1px solid blue;
+}
