@@ -1,4 +1,4 @@
-import { Problem } from "./types";
+import { Problem, Action } from "./types";
 // chrome.tabs.onRemoved.addListener(function(tabId,removed){
 //   const closedTab = chrome.tabs.get(tabId,function(tab){
 
@@ -10,16 +10,18 @@ import { Problem } from "./types";
 const app = (function () {
   const problem: Problem = {};
   chrome.runtime.onMessage.addListener(function (
-    request,
+    request:Action,
     sender,
     sendResponse
   ) {
     
 
     if (request) {
+        console.log(request);
+        
       if (request.action == "setProblem") {
-        problem.problemName = request.problemName;
-        problem.difficulty = request.difficulty;
+        problem.problemName = request.payload.problemName;
+        problem.difficulty = request.payload.difficulty;
       } else if (request.action == "getProblem") {
           console.log(problem);
           

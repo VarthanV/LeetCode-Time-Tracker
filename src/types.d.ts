@@ -4,7 +4,7 @@ export type Problem = {
     difficulty?:"Easy"| "Medium" |"Hard" 
 }
 
-export type action = {
-    sctionName:string,
-    args:any 
+export type Action = {
+    action:string
+    payload?:Problem 
 }

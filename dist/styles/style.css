@@ -41,19 +41,23 @@ body {
   font-weight: bold;
   font-size: 22px;
 }
-.difficulty-name{
+.difficulty-name {
   font-weight: bold;
   font-size: 22px;
 }
 .problem-name-div {
   font-size: 20px;
 }
-.easy{
+.easy {
   color: green;
 }
-.medium{
-  color:yellow ;
+.medium {
+  color: yellow;
 }
-.hard{
+.hard {
   color: red;
+}
+
+.difficulty {
+  margin-top: 10px;
 }

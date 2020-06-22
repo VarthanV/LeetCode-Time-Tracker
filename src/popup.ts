@@ -1,5 +1,6 @@
-import { Problem } from "./types";
+import { Problem ,Action} from "./types";
 //Dev Stuffs
+   // @ts-ignore
 const console = chrome.extension.getBackgroundPage().console;
 //Cache Dom
 const problemTitleDiv = document.querySelector(
@@ -34,6 +35,9 @@ function renderTimerPage(tab: chrome.tabs.Tab) {
     //   });
 
     // });
+    const action:Action={
+      action:"getProblem"
+    }
     chrome.runtime.sendMessage({ action: "getProblem" }, function (
       response: Problem
     ) {

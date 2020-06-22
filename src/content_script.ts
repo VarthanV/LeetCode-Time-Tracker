@@ -1,3 +1,5 @@
+import { Action } from "./types";
+
 const getDifficulty = () => {
   let diffDiv: HTMLDivElement = document.querySelector("div[diff]");
   if (diffDiv == null) {
@@ -25,12 +27,16 @@ const getDetails = () => {
   let problemName = getProblemName();
   let difficulty = getDifficulty();
   if (problemName && difficulty) {
-    //Send Extracted Data
-    chrome.runtime.sendMessage({
+    const action: Action = {
       action: "setProblem",
-      difficulty: difficulty,
-      problemName: problemName,
-    });
+      payload: {
+        //@ts-ignore
+        difficulty: difficulty,
+        problemName: problemName,
+      },
+    };
+    //Send Extracted Data
+    chrome.runtime.sendMessage(action);
   } else {
     setTimeout(getDetails, 3000);
   }
