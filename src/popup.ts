@@ -23,18 +23,7 @@ function renderTimerPage(tab: chrome.tabs.Tab) {
   if (urlRegex.test(url)) {
     let title: string = "a";
     let problemDict: Problem = {};
-    // chrome.runtime.onMessage.addListener(function (
-    //   request,
-    //   sender,
-    //   sendResponse
-    // ) {
-    //   const problemDict: Problem={}
-    //   chrome.runtime.sendMessage({action:"getProblem"}, function (request) {
-    //     problemDict.problemName =request.problemName;
-    //     problemDict.difficulty =request.difficulty;
-    //   });
 
-    // });
     const action:Action={
       action:"getProblem"
     }
