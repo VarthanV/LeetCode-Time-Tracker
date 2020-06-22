@@ -1,6 +1,6 @@
-import { Problem ,Action} from "./types";
+import { Problem, Action } from "./types";
 //Dev Stuffs
-   // @ts-ignore
+// @ts-ignore
 const console = chrome.extension.getBackgroundPage().console;
 //Cache Dom
 const problemTitleDiv = document.querySelector(
@@ -10,23 +10,18 @@ const difficultyDiv = document.querySelector(
   "#difficulty-div"
 ) as HTMLSpanElement;
 // Get Title of the Current Page and URL
+  renderTimerPage();
 
-chrome.tabs.query({ active: true }, function (tabs: chrome.tabs.Tab[]) {
-  renderTimerPage(tabs[0]);
-});
 
-function renderTimerPage(tab: chrome.tabs.Tab) {
-  console.log("hi");
+function renderTimerPage() {
+  
 
-  let urlRegex: RegExp = new RegExp("https://leetcode.com/problems/*");
-  let url = tab.url;
-  if (urlRegex.test(url)) {
-    let title: string = "a";
+ 
     let problemDict: Problem = {};
 
-    const action:Action={
-      action:"getProblem"
-    }
+    const action: Action = {
+      action: "getProblem",
+    };
     chrome.runtime.sendMessage({ action: "getProblem" }, function (
       response: Problem
     ) {
@@ -42,7 +37,8 @@ function renderTimerPage(tab: chrome.tabs.Tab) {
         difficultyDiv.classList.add(difficulty.toLowerCase());
       }
     });
-  }
+  
+ 
 }
 
 function createElement(): HTMLElement {
