@@ -24,11 +24,13 @@
   ],
 
   "background": {
-    "scripts": ["js/vendor.js", "js/background.js"]
+    "scripts": ["js/vendor.js", "js/background.js"],
+    "persistent": true
   },
 
   "permissions": [
     "storage",
-    "activeTab"
+    "activeTab",
+    "background"
   ]
 }

@@ -25,9 +25,9 @@ const getDetails = () => {
   let problemName = getProblemName();
   let difficulty = getDifficulty();
   if (problemName && difficulty) {
-      
-      
+    //Send Extracted Data
     chrome.runtime.sendMessage({
+      action: "setProblem",
       difficulty: difficulty,
       problemName: problemName,
     });
@@ -35,4 +35,8 @@ const getDetails = () => {
     setTimeout(getDetails, 3000);
   }
 };
+//Get Details
+chrome.runtime.onMessage.addListener(function (request, sender, response) {
+  getDetails();
+});
 getDetails();
