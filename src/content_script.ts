@@ -45,4 +45,7 @@ const getDetails = () => {
 chrome.runtime.onMessage.addListener(function (request, sender, response) {
   getDetails();
 });
+
+//Driver Code
+
 getDetails();
