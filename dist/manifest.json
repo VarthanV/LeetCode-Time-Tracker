@@ -31,7 +31,6 @@
   "permissions": [
     "storage",
     "activeTab",
-    "background",
-    "tabs"
+    "background"
   ]
 }

@@ -1,22 +1,20 @@
 import { Problem, Action } from "./types";
 
-// Gets Problem Name and Difficulty from the Content Script and Persits data
+// Gets Problem Name and Difficulty from the Content Script and Persit data
 
-chrome.tabs.onActivated.addListener(function(activeInfo) {
-    let urlRegex: RegExp = new RegExp("https://leetcode.com/problems/*");
-    const activeTabId = activeInfo.tabId;
-   chrome.tabs.get(activeTabId,function(tab){
-      const currentUrl = tab.url;
-      if(urlRegex.test(currentUrl)){
-         chrome.browserAction.setPopup({popup:"popup.html"})
-      }
-      else{
-          chrome.browserAction.setPopup({popup:"invalid.html"})
-      }
-    
-    });
+chrome.tabs.onActivated.addListener(function (activeInfo) {
+  let urlRegex: RegExp = new RegExp("https://leetcode.com/problems/*");
+  const activeTabId = activeInfo.tabId;
+  // Setting Popup dynamically
 
-   
+  chrome.tabs.get(activeTabId, function (tab) {
+    const currentUrl = tab.url;
+    if (urlRegex.test(currentUrl)) {
+      chrome.browserAction.setPopup({ popup: "popup.html" });
+    } else {
+      chrome.browserAction.setPopup({ popup: "invalid.html" });
+    }
+  });
 });
 
 const app = (function () {
