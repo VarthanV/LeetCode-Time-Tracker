@@ -10,21 +10,15 @@ import { Problem, Action } from "./types";
 const app = (function () {
   const problem: Problem = {};
   chrome.runtime.onMessage.addListener(function (
-    request:Action,
+    request: Action,
     sender,
     sendResponse
   ) {
-    
-
     if (request) {
-        console.log(request);
-        
       if (request.action == "setProblem") {
         problem.problemName = request.payload.problemName;
         problem.difficulty = request.payload.difficulty;
       } else if (request.action == "getProblem") {
-          console.log(problem);
-          
         sendResponse(problem);
       }
     }

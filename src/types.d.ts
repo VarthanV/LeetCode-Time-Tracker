@@ -1,10 +1,9 @@
-
 export type Problem = {
-    problemName?:string,
-    difficulty?:"Easy"| "Medium" |"Hard" 
-}
+  problemName?: string;
+  difficulty?: "Easy" | "Medium" | "Hard";
+};
 
 export type Action = {
-    action:string
-    payload?:Problem 
-}
+  action: string;
+  payload?: Problem;
+};
