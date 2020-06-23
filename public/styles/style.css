@@ -72,3 +72,19 @@ a{
   color: black;
 
 }
+#timer-div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+
+}
+#button-div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+#button-div button{
+  margin: 5px;
+}

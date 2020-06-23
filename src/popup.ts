@@ -9,7 +9,20 @@ const problemTitleDiv = document.querySelector(
 const difficultyDiv = document.querySelector(
   "#difficulty-div"
 ) as HTMLSpanElement;
+const startBtn =document.getElementById('start') as HTMLButtonElement;
+const resetBtn =document.getElementById('reset') as HTMLButtonElement;
 // Get Title of the Current Page and URL
+const backgroundPage = chrome.extension.getBackgroundPage();
+
+//  Background Page
+chrome.runtime.getBackgroundPage(function(backgroundPageWindow:any) {
+  // Do stuff here that requires access to the background page. 
+  // E.g. to access the function 'myFunction()'
+ console.log(backgroundPageWindow.hi);
+ 
+});
+
+
   renderTimerPage();
 
 
@@ -45,3 +58,21 @@ function createElement(): HTMLElement {
   const div: HTMLElement = document.createElement("div");
   return div;
 }
+
+
+// timer
+
+
+
+//@ts-ignore
+startBtn.addEventListener('click',function(){
+  //@ts-ignore
+  backgroundPage.startStop();
+
+})
+
+
+resetBtn.addEventListener('click',function(){
+  //@ts-ignore
+backgroundPage.resetFunc(); 
+})

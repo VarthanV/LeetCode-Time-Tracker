@@ -24,8 +24,7 @@
   ],
 
   "background": {
-    "scripts": ["js/vendor.js", "js/background.js"],
-    "persistent": true
+    "scripts": [ "js/background.js"]
   },
 
   "permissions": [
