@@ -1,5 +1,9 @@
 import { Problem, Action } from "./types";
+
+
+// Overriding Custom Window Object Since cannot am unable to extend the default window obj
 let windowObj = <any>window;
+
 // Setting Popup dynamically
 
 chrome.tabs.onActivated.addListener(function (activeInfo) {
