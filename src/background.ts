@@ -83,16 +83,9 @@ let secOut = 0;
 let minOut = 0;
 let hourOut = 0;
 
-/* Contains and outputs returned value of  function checkTime */
-
-
-
-/* Output variable End */
-
+// Driver for Timer
 function timer() {
   let document = chrome.extension.getViews({ type: "popup" })[0].document;
-  /* Main Timer */
-
   miliSecOut = checkTime(milisec);
   secOut = checkTime(sec);
   minOut = checkTime(min);
@@ -115,6 +108,7 @@ function timer() {
     hour = ++hour;
   }
 
+  // Updates DOM 
   document.getElementById("milisec").innerHTML = miliSecOut.toString();
   document.getElementById("sec").innerHTML = secOut.toString();
   document.getElementById("min").innerHTML = minOut.toString();
@@ -122,13 +116,7 @@ function timer() {
 }
 
 
-
-/* Contains and outputs returned value of  function checkTime */
-
-
-
-/* Output variable End */
-
+// Checks time to add 0 or not
 function checkTime(i) {
   if (i < 10) {
     i = "0" + i;
@@ -136,6 +124,7 @@ function checkTime(i) {
   return i;
 }
 
+// Resets the timer
 function reset() {
   console.log("hey");
   stopTimer();
