@@ -59,11 +59,6 @@ function createElement(): HTMLElement {
   return div;
 }
 
-
-// timer
-
-
-
 //@ts-ignore
 startBtn.addEventListener('click',function(){
   //@ts-ignore
