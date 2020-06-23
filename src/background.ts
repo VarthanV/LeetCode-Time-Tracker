@@ -138,6 +138,8 @@ function reset() {
 
   let document = chrome.extension.getViews({ type: "popup" })[0].document;
   /*Reset*/
+  startstop  = 0;
+  document.getElementById("start").innerHTML = "Start";
 
   milisec = 0;
   sec = 0;
@@ -149,4 +151,3 @@ function reset() {
   document.getElementById("min").innerHTML = "00";
   document.getElementById("hour").innerHTML = "00";
 }
-
