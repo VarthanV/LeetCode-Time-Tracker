@@ -37,11 +37,13 @@ chrome.runtime.onMessage.addListener(function (
 });
 
 // Updating Timer Stuffs
+
+
 let startstop = 0;
 let x;
-
-function startStop() {
   /* Toggle StartStop */
+function startStop() {
+
   startstop = startstop + 1;
   let document = chrome.extension.getViews({ type: "popup" })[0].document;
 
@@ -55,27 +57,35 @@ function startStop() {
   }
 }
 
+// Creating my Custom Window object since Typescript doesnt allow much flexiblity
 windowObj.startStop = startStop;
 windowObj.resetFunc = reset;
+
+//Starts the Timer
+
 function startTimer() {
   x = setInterval(timer, 10);
 }
 
+// Stops the timer
 function stopTimer() {
   clearInterval(x);
-} /* Stop */
+} 
+ 
 
-var milisec = 0;
-var sec = 0; /* holds incrementing value */
-var min = 0;
-var hour = 0;
+// Declaring Variables
+let milisec = 0;
+let sec = 0; /* holds incrementing value */
+let min = 0;
+let hour = 0;
+let miliSecOut = 0;
+let secOut = 0;
+let minOut = 0;
+let hourOut = 0;
 
 /* Contains and outputs returned value of  function checkTime */
 
-var miliSecOut = 0;
-var secOut = 0;
-var minOut = 0;
-var hourOut = 0;
+
 
 /* Output variable End */
 
@@ -111,17 +121,11 @@ function timer() {
   document.getElementById("hour").innerHTML = hourOut.toString();
 }
 
-var milisec = 0;
-var sec = 0; /* holds incrementing value */
-var min = 0;
-var hour = 0;
+
 
 /* Contains and outputs returned value of  function checkTime */
 
-var miliSecOut = 0;
-var secOut = 0;
-var minOut = 0;
-var hourOut = 0;
+
 
 /* Output variable End */
 
