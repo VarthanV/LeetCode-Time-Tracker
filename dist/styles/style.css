@@ -3,7 +3,7 @@ body {
   padding: 0;
   font-family: "Open Sans", sans-serif;
   font-size: 100%;
-  width: 596px;
+  width: 400px;
   height: 453px;
   box-sizing: border-box;
 }
@@ -22,7 +22,7 @@ body {
   justify-content: center;
 }
 .pages-block {
-  width: 580px;
+  width: 400px;
   margin-top: 10px;
   display: flex;
   justify-content: space-around;
@@ -30,12 +30,17 @@ body {
 }
 .active {
   border-bottom: 1px solid blue;
+  padding: 2px;
 }
 .problem-description {
   align-items: center;
   justify-content: center;
   margin-top: 20px;
   margin-left: 22px;
+  background-color:gray;
+  width: 350px;
+  padding: 12px;
+
 }
 .problem-name {
   font-weight: bold;
@@ -60,4 +65,10 @@ body {
 
 .difficulty {
   margin-top: 10px;
+}
+
+a{
+  text-decoration: none;
+  color: black;
+
 }

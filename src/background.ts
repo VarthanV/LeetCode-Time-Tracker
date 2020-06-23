@@ -1,11 +1,10 @@
 import { Problem, Action } from "./types";
 
-// Gets Problem Name and Difficulty from the Content Script and Persit data
-
+ // Setting Popup dynamically
 chrome.tabs.onActivated.addListener(function (activeInfo) {
   let urlRegex: RegExp = new RegExp("https://leetcode.com/problems/*");
   const activeTabId = activeInfo.tabId;
-  // Setting Popup dynamically
+ 
 
   chrome.tabs.get(activeTabId, function (tab) {
     const currentUrl = tab.url;
@@ -16,6 +15,8 @@ chrome.tabs.onActivated.addListener(function (activeInfo) {
     }
   });
 });
+
+// Persisting Data Stuffs
 
 const app = (function () {
   const problem: Problem = {};
@@ -34,3 +35,7 @@ const app = (function () {
     }
   });
 })();
+
+
+// Updating Timer Stuffs
+
