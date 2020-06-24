@@ -1,6 +1,5 @@
 import { Problem, Action } from "./types";
 
-
 // Overriding Custom Window Object Since cannot am unable to extend the default window obj
 let windowObj = <any>window;
 
@@ -42,18 +41,16 @@ chrome.runtime.onMessage.addListener(function (
 
 // Updating Timer Stuffs
 
-
 let startstop = 0;
 let x;
-  /* Toggle StartStop */
+/* Toggle StartStop */
 function startStop() {
-
   startstop = startstop + 1;
   let document = chrome.extension.getViews({ type: "popup" })[0].document;
 
   if (startstop == 1) {
     startTimer();
-    document.getElementById("start").innerHTML = "Stop";
+    document.getElementById("start").innerHTML = "Pause";
   } else if (startstop == 2) {
     document.getElementById("start").innerHTML = "Start";
     startstop = 0;
@@ -74,8 +71,7 @@ function startTimer() {
 // Stops the timer
 function stopTimer() {
   clearInterval(x);
-} 
- 
+}
 
 // Declaring Variables
 let milisec = 0;
@@ -112,13 +108,12 @@ function timer() {
     hour = ++hour;
   }
 
-  // Updates DOM 
+  // Updates DOM
   document.getElementById("milisec").innerHTML = miliSecOut.toString();
   document.getElementById("sec").innerHTML = secOut.toString();
   document.getElementById("min").innerHTML = minOut.toString();
   document.getElementById("hour").innerHTML = hourOut.toString();
 }
-
 
 // Checks time to add 0 or not
 function checkTime(i) {
@@ -135,7 +130,7 @@ function reset() {
 
   let document = chrome.extension.getViews({ type: "popup" })[0].document;
   /*Reset*/
-  startstop  = 0;
+  startstop = 0;
   document.getElementById("start").innerHTML = "Start";
 
   milisec = 0;

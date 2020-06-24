@@ -9,49 +9,37 @@ const problemTitleDiv = document.querySelector(
 const difficultyDiv = document.querySelector(
   "#difficulty-div"
 ) as HTMLSpanElement;
-const startBtn =document.getElementById('start') as HTMLButtonElement;
-const resetBtn =document.getElementById('reset') as HTMLButtonElement;
+const startBtn = document.getElementById("start") as HTMLButtonElement;
+const resetBtn = document.getElementById("reset") as HTMLButtonElement;
 // Get Title of the Current Page and URL
 const backgroundPage = chrome.extension.getBackgroundPage();
 
 //  Background Page
-chrome.runtime.getBackgroundPage(function(backgroundPageWindow:any) {
-  // Do stuff here that requires access to the background page. 
-  // E.g. to access the function 'myFunction()'
- console.log(backgroundPageWindow.hi);
- 
-});
 
 
-  renderTimerPage();
-
+renderTimerPage();
 
 function renderTimerPage() {
-  
+  let problemDict: Problem = {};
 
- 
-    let problemDict: Problem = {};
+  const action: Action = {
+    action: "getProblem",
+  };
+  chrome.runtime.sendMessage({ action: "getProblem" }, function (
+    response: Problem
+  ) {
+    console.log(response);
+    problemDict.problemName = response.problemName;
+    problemDict.difficulty = response.difficulty;
+    if (problemDict.problemName) {
+      let name = problemDict.problemName.split(".")[1];
+      let difficulty = problemDict.difficulty;
+      problemTitleDiv.innerText = name;
+      difficultyDiv.innerText = difficulty;
 
-    const action: Action = {
-      action: "getProblem",
-    };
-    chrome.runtime.sendMessage({ action: "getProblem" }, function (
-      response: Problem
-    ) {
-      console.log(response);
-      problemDict.problemName = response.problemName;
-      problemDict.difficulty = response.difficulty;
-      if (problemDict.problemName) {
-        let name = problemDict.problemName.split(".")[1];
-        let difficulty = problemDict.difficulty;
-        problemTitleDiv.innerText = name;
-        difficultyDiv.innerText = difficulty;
-
-        difficultyDiv.classList.add(difficulty.toLowerCase());
-      }
-    });
-  
- 
+      difficultyDiv.classList.add(difficulty.toLowerCase());
+    }
+  });
 }
 
 function createElement(): HTMLElement {
@@ -60,14 +48,12 @@ function createElement(): HTMLElement {
 }
 
 //@ts-ignore
-startBtn.addEventListener('click',function(){
+startBtn.addEventListener("click", function () {
   //@ts-ignore
   backgroundPage.startStop();
+});
 
-})
-
-
-resetBtn.addEventListener('click',function(){
+resetBtn.addEventListener("click", function () {
   //@ts-ignore
-backgroundPage.resetFunc(); 
-})
+  backgroundPage.resetFunc();
+});

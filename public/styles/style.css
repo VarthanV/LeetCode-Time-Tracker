@@ -37,27 +37,28 @@ body {
   justify-content: center;
   margin-top: 20px;
   margin-left: 22px;
-  background-color:gray;
+
   width: 350px;
   padding: 12px;
 
 }
 .problem-name {
   font-weight: bold;
-  font-size: 22px;
+  font-size: 16px;
 }
 .difficulty-name {
   font-weight: bold;
-  font-size: 22px;
+  font-size: 16px;
+ 
 }
 .problem-name-div {
-  font-size: 20px;
+  font-size: 16px;
 }
 .easy {
   color: green;
 }
 .medium {
-  color: yellow;
+  color: #F39147;
 }
 .hard {
   color: red;
@@ -87,4 +88,26 @@ a{
 }
 #button-div button{
   margin: 5px;
+  padding: 10px 25px;
+  color: white;
+  outline: none;
+  border: none;
+  border: 1px ;
+}
+
+  
+#start{
+  background-color: #d63031;
+
+}
+
+#reset{
+  background-color:#0984e3;
+}
+#save{
+  background-color: #00b894;
+}
+.timer-wrapper{
+  background-color: #81ecec;
+  margin-top: 5px;
 }
