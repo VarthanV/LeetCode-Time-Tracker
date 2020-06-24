@@ -4,6 +4,7 @@ import { getTimeasString } from "./helpers";
 // Overriding Custom Window Object Since cannot am unable to extend the default window obj
 let windowObj = <any>window;
 let timeString;
+let currentUrl;
 // Setting Popup dynamically
 console.log(chrome.extension.getViews({ type: "popup" }));
 
@@ -12,7 +13,7 @@ chrome.tabs.onActivated.addListener(function (activeInfo) {
   const activeTabId = activeInfo.tabId;
 
   chrome.tabs.get(activeTabId, function (tab) {
-    const currentUrl = tab.url;
+     currentUrl = tab.url;
     if (urlRegex.test(currentUrl)) {
       chrome.browserAction.setPopup({ popup: "popup.html" });
     } else {
@@ -181,6 +182,7 @@ function setData() {
     difficulty: problem.difficulty,
     timeTaken: timeString,
     date: todayString,
+    problemUrl:currentUrl
   };
   let currentDiffProblemArray: object[] =
     data[problem.difficulty.toLowerCase()];

@@ -10,6 +10,7 @@ const problemTitleDiv = document.querySelector(
 const difficultyDiv = document.querySelector(
   "#difficulty-div"
 ) as HTMLSpanElement;
+const tableDiv = document.querySelector("#problem-table");
 
 // Buttons Div
 
@@ -39,7 +40,10 @@ saveBtn.addEventListener("click", function () {
 
 renderTimerPage();
 
-document.addEventListener("DOMContentLoaded", renderChart);
+document.addEventListener("DOMContentLoaded", function () {
+  renderChart();
+  renderTable();
+});
 
 function renderTimerPage() {
   let problemDict: Problem = {};
@@ -67,6 +71,8 @@ function renderTimerPage() {
 chrome.runtime.onMessage.addListener(function (request) {
   if (request.showGraph) {
     renderChart();
+    clearUI();
+    renderTable();
   }
 });
 
@@ -75,6 +81,9 @@ function createElement(): HTMLElement {
   return div;
 }
 
+function clearUI() {
+  tableDiv.innerHTML = null;
+}
 //@ts-ignore
 
 function renderChart() {
@@ -115,4 +124,38 @@ function renderChart() {
     },
     options: {},
   });
+}
+
+function renderTable() {
+  const items = localStorage.getItem("leetCodeExtensionDetails");
+  if (items) {
+    const parsed = JSON.parse(items);
+    const easyProblems = parsed.easy;
+    const mediumProblems = parsed.medium;
+    const hardProblems = parsed.hard;
+    renderItem(easyProblems, "easy");
+    renderItem(mediumProblems, "medium");
+    renderItem(hardProblems, "hard");
+  }
+}
+
+function renderItem(items, classname) {
+  for (const item of items) {
+    const row = document.createElement("tr");
+    const problemName = document.createElement("td");
+    const timeTaken = document.createElement("td");
+    problemName.innerText = item.problemName;
+    const difficulty = document.createElement("td");
+    const dateSolved = document.createElement("td");
+    difficulty.innerText = item.difficulty;
+    difficulty.classList.add(classname);
+    timeTaken.innerText = item.timeTaken;
+    dateSolved.innerText = item.date;
+    row.appendChild(problemName);
+    row.appendChild(difficulty);
+    row.appendChild(timeTaken);
+    row.appendChild(dateSolved);
+
+    tableDiv.appendChild(row);
+  }
 }

@@ -1,9 +1,14 @@
 // Converts the given individuval time parts to human readable form
 export function getTimeasString(seconds: number, mins: number, hours: number) {
 
-  if (hours > 0) {
+  if (hours > 0 && mins >0 ) {
+    return `${normalize(hours)} hr ${normalize(mins)} min`;
+  } 
+  else if(hours > 0 ){
     return `${normalize(hours)} hr`;
-  } else if (mins > 0) {
+  }
+  
+  else if (mins > 0) {
     return `${normalize(mins)} m `;
   } else if (seconds > 0) {
     return `${normalize(seconds)} s`;

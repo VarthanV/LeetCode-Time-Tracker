@@ -113,9 +113,63 @@ a{
 }
 .chart-wrapper{
   margin-top: 20px;
+
+}
+.button-wrapper{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
 }
 .chart-wrapper p {
-  margin-left: 21px;
+  margin-left: 20%;
+  font-size: 18px;
+
+  font-weight: bolder;
+}
+.chart-wrapper .btn{
+  padding:10px 20px;
+  border: 1px solid;
+}
+#table-div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+table, td, th {  
+  border: 1px solid #ddd;
+  text-align: center;
+}
+.chart-div{
+  width: 300px;
+  height: 300px;
+  margin-left: 20%;
+}
+.table-wrapper p{
+  margin-left: 35%;
   font-size: 18px;
   font-weight: bolder;
+}
+.table-wrapper table {
+  margin-left: 3%;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  padding: 20px;
+  width: inherit;
+}
+
+#table-heading{
+  font-weight: bolder;
+  font-size: 14px;
+  background-color:black;
+  color: white;
+  letter-spacing: 2px;
 }
