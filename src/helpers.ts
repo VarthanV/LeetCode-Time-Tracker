@@ -1,11 +1,14 @@
-export function getTimeasString(seconds:number,mins:number,hour:number)
+export function getTimeasString(seconds:number,mins:number,hours:number)
 {
-    let secondString:string;
-    let minuteString:string;
-    let hourString:string;
-    if(seconds < 10) secondString = "0" + seconds;
-    if(mins < 10) minuteString = "0" + mins;
-    if(hour < 10) hourString = "0" +hour;
-    return ((hour > 0 ? hourString + ":" : "") + minuteString + ":" + secondString);
+    if(hours > 0){
+        return `${hours.toString()} hr`
+    }
+    else if(mins >0 ){
+        return `${mins.toString()} m `;
+
+    }
+    else if( seconds > 0){
+        return `${seconds.toString()} s`
+    }
 
 }

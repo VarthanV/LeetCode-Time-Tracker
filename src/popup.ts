@@ -1,4 +1,5 @@
 import { Problem, Action } from "./types";
+
 //Dev Stuffs
 // @ts-ignore
 const console = chrome.extension.getBackgroundPage().console;

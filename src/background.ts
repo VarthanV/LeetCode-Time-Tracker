@@ -120,8 +120,9 @@ function timer() {
   document.getElementById("hour").innerHTML = hourOut.toString();
 
   }
+  const timeString  =getTimeasString(secOut,minOut,hourOut);
 
-  chrome.browserAction.setBadgeText({text : secOut.toString()});
+  chrome.browserAction.setBadgeText({text : timeString});
   // Update the badge Text
 
 
