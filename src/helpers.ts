@@ -14,3 +14,4 @@ function normalize(num: number) {
   let n = Math.floor(num);
   return n;
 }
+
