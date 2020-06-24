@@ -47,9 +47,7 @@ function renderTimerPage() {
   const action: Action = {
     action: "getProblem",
   };
-  chrome.runtime.sendMessage({ action: "getProblem" }, function (
-    response: Problem
-  ) {
+  chrome.runtime.sendMessage(action, function (response: Problem) {
     console.log(response);
     problemDict.problemName = response.problemName;
     problemDict.difficulty = response.difficulty;
@@ -64,6 +62,14 @@ function renderTimerPage() {
   });
 }
 
+// Listeners
+
+chrome.runtime.onMessage.addListener(function (request) {
+  if (request.showGraph) {
+    renderChart();
+  }
+});
+
 function createElement(): HTMLElement {
   const div: HTMLElement = document.createElement("div");
   return div;
@@ -75,16 +81,21 @@ function renderChart() {
   let easyCount = 0;
   let mediumCount = 0;
   let hardCount = 0;
- 
-const items  = localStorage.getItem("leetCodeExtensionDetails");
-if(items){
-const parsedItem = JSON.parse(items);
-easyCount = parsedItem.easy.length;
-mediumCount = parsedItem.medium.length;
-hardCount = parsedItem.hard.length
 
-}
- //@ts-ignore
+  const items = localStorage.getItem("leetCodeExtensionDetails");
+  if (items) {
+    const parsedItem = JSON.parse(items);
+    easyCount = parsedItem.easy.filter(
+      (item) => typeof item.duplicateIndex == "number"
+    ).length;
+    mediumCount = parsedItem.medium.filter(
+      (item) => typeof item.duplicateIndex == "number"
+    ).length;
+    hardCount = parsedItem.hard.filter(
+      (item) => typeof item.duplicateIndex == "number"
+    ).length;
+  }
+  //@ts-ignore
   var ctx = document.getElementById("myChart").getContext("2d");
   var myChart = new Chart(ctx, {
     type: "doughnut",
@@ -93,7 +104,7 @@ hardCount = parsedItem.hard.length
       datasets: [
         {
           label: "# of Votes",
-          data: [easyCount,mediumCount,hardCount],
+          data: [easyCount, mediumCount, hardCount],
           backgroundColor: [
             "rgb(68,160,72)",
             "rgb(239,113,9)",

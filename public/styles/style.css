@@ -3,7 +3,7 @@ body {
   padding: 0;
   font-family: "Open Sans", sans-serif;
   font-size: 100%;
-  width: 400px;
+  width: 500px;
   height: 453px;
   box-sizing: border-box;
 }
@@ -110,4 +110,12 @@ a{
 .timer-wrapper{
   background-color: #81ecec;
   margin-top: 5px;
+}
+.chart-wrapper{
+  margin-top: 20px;
+}
+.chart-wrapper p {
+  margin-left: 21px;
+  font-size: 18px;
+  font-weight: bolder;
 }
