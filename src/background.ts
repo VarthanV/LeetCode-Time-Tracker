@@ -3,8 +3,9 @@ import { getTimeasString } from "./helpers";
 
 // Overriding Custom Window Object Since cannot am unable to extend the default window obj
 let windowObj = <any>window;
-
+let timeString;
 // Setting Popup dynamically
+console.log(chrome.extension.getViews({type:"popup"}));
 
 chrome.tabs.onActivated.addListener(function (activeInfo) {
   let urlRegex: RegExp = new RegExp("https://leetcode.com/problems/*");
@@ -62,6 +63,7 @@ function startStop() {
 // Creating my Custom Window object since Typescript doesnt allow much flexiblity
 windowObj.startStop = startStop;
 windowObj.resetFunc = reset;
+windowObj.saveData = saveData;
 
 //Starts the Timer
 
@@ -126,7 +128,7 @@ function timer() {
   }
 
   // Update the badge Text
-  const timeString = getTimeasString(secOut, minOut, hourOut);
+  timeString = getTimeasString(secOut, minOut, hourOut);
 
   chrome.browserAction.setBadgeText({ text: timeString });
 }
@@ -159,4 +161,48 @@ function reset() {
   document.getElementById("sec").innerHTML = "00";
   document.getElementById("min").innerHTML = "00";
   document.getElementById("hour").innerHTML = "00";
+}
+
+function setData() {
+  console.log("hi");
+
+  let data = JSON.parse(localStorage.getItem("leetCodeExtensionDetails"));
+  let today = new Date();
+  //@ts-ignore
+  let dd = String(today.getDate()).padStart(2, "0");
+  //@ts-ignore
+  let mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+  let yyyy = today.getFullYear();
+
+  const todayString = dd + "/" + mm + "/" + yyyy;
+
+  const dataMap = {
+    problemName: problem.problemName,
+    difficulty: problem.difficulty,
+    timeTaken: timeString,
+    date: todayString,
+  };
+  data[problem.difficulty.toLowerCase()].push(dataMap);
+  let dataToSet = JSON.stringify(data);
+
+  localStorage.setItem("leetCodeExtensionDetails", dataToSet);
+  console.log(localStorage.getItem("leetCodeExtensionDetails"));
+}
+
+function saveData() {
+  if (!localStorage.getItem("leetCodeExtensionDetails")) {
+    setInitialData();
+    setData();
+  } else {
+    setData();
+  }
+}
+
+function setInitialData() {
+  var problemDetails = JSON.stringify({
+    easy: [],
+    medium: [],
+    hard: [],
+  });
+  localStorage.setItem("leetCodeExtensionDetails", problemDetails);
 }
