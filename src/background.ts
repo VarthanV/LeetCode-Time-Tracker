@@ -1,4 +1,5 @@
 import { Problem, Action } from "./types";
+import {getTimeasString} from './helpers';
 
 // Overriding Custom Window Object Since cannot am unable to extend the default window obj
 let windowObj = <any>window;
@@ -73,6 +74,7 @@ function stopTimer() {
   clearInterval(x);
 }
 
+
 // Declaring Variables
 let milisec = 0;
 let sec = 0; /* holds incrementing value */
@@ -82,10 +84,10 @@ let miliSecOut = 0;
 let secOut = 0;
 let minOut = 0;
 let hourOut = 0;
-
 // Driver for Timer
 function timer() {
-  let document = chrome.extension.getViews({ type: "popup" })[0].document;
+  let popup =chrome.extension.getViews({ type: "popup" })[0];
+  let document =  popup && popup.document;
   miliSecOut = checkTime(milisec);
   secOut = checkTime(sec);
   minOut = checkTime(min);
@@ -109,10 +111,20 @@ function timer() {
   }
 
   // Updates DOM
+
+  if(document){
+
   document.getElementById("milisec").innerHTML = miliSecOut.toString();
   document.getElementById("sec").innerHTML = secOut.toString();
   document.getElementById("min").innerHTML = minOut.toString();
   document.getElementById("hour").innerHTML = hourOut.toString();
+
+  }
+
+  chrome.browserAction.setBadgeText({text : secOut.toString()});
+  // Update the badge Text
+
+
 }
 
 // Checks time to add 0 or not
@@ -127,6 +139,7 @@ function checkTime(i) {
 function reset() {
   console.log("hey");
   stopTimer();
+  chrome.browserAction.setBadgeText({text:""});
 
   let document = chrome.extension.getViews({ type: "popup" })[0].document;
   /*Reset*/
