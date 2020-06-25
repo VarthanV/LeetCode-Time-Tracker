@@ -231,6 +231,7 @@ function renderItem(items, classname) {
 
 /*
 CSV Helpers 
+Credits : https://jsfiddle.net/gengns/j1jm2tjx/
 
 */
 function download_csv(csv, filename) {
