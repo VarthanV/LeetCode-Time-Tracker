@@ -102,7 +102,7 @@ function renderTimerPage() {
     action: "getProblem",
   };
   chrome.runtime.sendMessage(action, function (response: Problem) {
-    console.log(response);
+
     problemDict.problemName = response.problemName;
     problemDict.difficulty = response.difficulty;
     if (problemDict.problemName) {

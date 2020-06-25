@@ -6,14 +6,14 @@ let windowObj = <any>window;
 let timeString;
 let currentUrl;
 // Setting Popup dynamically
-console.log(chrome.extension.getViews({ type: "popup" }));
+chrome.browserAction.setBadgeBackgroundColor({ color: "green" });
 
 chrome.tabs.onActivated.addListener(function (activeInfo) {
   let urlRegex: RegExp = new RegExp("https://leetcode.com/problems/*");
   const activeTabId = activeInfo.tabId;
 
   chrome.tabs.get(activeTabId, function (tab) {
-     currentUrl = tab.url;
+    currentUrl = tab.url;
     if (urlRegex.test(currentUrl)) {
       chrome.browserAction.setPopup({ popup: "popup.html" });
     } else {
@@ -144,7 +144,6 @@ function checkTime(i) {
 
 // Resets the timer
 function reset() {
-  console.log("hey");
   stopTimer();
   chrome.browserAction.setBadgeText({ text: "" });
 
@@ -165,8 +164,6 @@ function reset() {
 }
 
 function setData() {
-  console.log("hi");
-
   let data = JSON.parse(localStorage.getItem("leetCodeExtensionDetails"));
   let today = new Date();
   //@ts-ignore
@@ -182,7 +179,7 @@ function setData() {
     difficulty: problem.difficulty,
     timeTaken: timeString,
     date: todayString,
-    problemUrl:currentUrl
+    problemUrl: currentUrl,
   };
   let currentDiffProblemArray: object[] =
     data[problem.difficulty.toLowerCase()];
@@ -191,32 +188,27 @@ function setData() {
     return item.problemName === problemName;
   });
   let problemObj: any = exists[0];
-  console.log(exists.length);
+
   if (exists.length > 0) {
     // dataMap.problemName +=  problemObj.duplicateIndex.toString();
     problemObj.duplicateIndex += 1;
     const itemToFind = (item) => item.problemName == dataMap.problemName;
     let idx = currentDiffProblemArray.findIndex(itemToFind);
     data[problem.difficulty.toLowerCase()][idx] = problemObj;
-    console.log("Logging Map");
 
     dataMap.problemName += ` (${problemObj.duplicateIndex})`;
-    console.log(dataMap);
+
     data[problemObj.difficulty.toLowerCase()].push(dataMap);
     localStorage.setItem("leetCodeExtensionDetails", JSON.stringify(data));
-    console.log(localStorage.getItem("leetCodeExtensionDetails"));
   } else {
     dataMap.duplicateIndex = 0;
     data[dataMap.difficulty.toLowerCase()].push(dataMap);
     let dataToSet = JSON.stringify(data);
-    console.log(dataToSet);
 
     localStorage.setItem("leetCodeExtensionDetails", dataToSet);
-    console.log(localStorage.getItem("leetCodeExtensionDetails"));
   }
   alert("Saved!");
-  chrome.runtime.sendMessage({"showGraph":true})
-  
+  chrome.runtime.sendMessage({ showGraph: true });
 }
 
 async function saveData() {
