@@ -172,11 +172,12 @@ a {
 .btn {
   display: inline;
   text-decoration: none;
-  color: black;
+  color: white;
+  background-color: black;
   border: 1px solid;
   padding: 10px 25px;
   outline: none;
-  background-color: white;
+ 
   cursor: pointer;
 }
 #name-wrapper {

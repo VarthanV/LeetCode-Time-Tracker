@@ -5,8 +5,9 @@ import { getTimeasString } from "./helpers";
 let windowObj = <any>window;
 let timeString;
 let currentUrl;
+
 // Setting Popup dynamically
-chrome.browserAction.setBadgeBackgroundColor({ color: "green" });
+chrome.browserAction.setBadgeBackgroundColor({ color: "#5CAD62"});
 
 chrome.tabs.onActivated.addListener(function (activeInfo) {
   let urlRegex: RegExp = new RegExp("https://leetcode.com/problems/*");

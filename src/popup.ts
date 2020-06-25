@@ -32,7 +32,7 @@ const backgroundPage = chrome.extension.getBackgroundPage();
 let easyProblems;
 let mediumProblems;
 let hardProblems;
-let selectedValue;
+let selectedValue = 'all';
 //  Background Page
 
 /*
@@ -56,7 +56,7 @@ saveBtn.addEventListener("click", function () {
 });
 
 exportToCSVButton.addEventListener("click", function () {
-  alert(selectedValue);
+  
   if (selectedValue === "all") {
     export_table_to_csv(document, "leetcodestats.csv");
   } else if (selectedValue === "easy") {

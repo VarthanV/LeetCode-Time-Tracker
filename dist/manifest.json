@@ -2,7 +2,7 @@
   "manifest_version": 2,
 
   "name": "LeetCode Time Tracker ",
-  "description": "An extension to track the no of problems solved in Leetcode and time taken to solve it",
+  "description": "An extension to track the no of problems solved in Leetcode and time taken to solve it and the option to export it as CSV File",
   "version": "0.0.1",
 
   "options_ui": {
