@@ -32,6 +32,7 @@ const backgroundPage = chrome.extension.getBackgroundPage();
 let easyProblems;
 let mediumProblems;
 let hardProblems;
+let selectedValue;
 //  Background Page
 
 /*
@@ -55,11 +56,20 @@ saveBtn.addEventListener("click", function () {
 });
 
 exportToCSVButton.addEventListener("click", function () {
-  export_table_to_csv(document, "leetcodestats.csv");
+  alert(selectedValue);
+  if (selectedValue === "all") {
+    export_table_to_csv(document, "leetcodestats.csv");
+  } else if (selectedValue === "easy") {
+    export_table_to_csv(document, "leetcode_easystats.csv");
+  } else if (selectedValue === "medium") {
+    export_table_to_csv(document, "leetcode_mediumstats.csv");
+  } else if (selectedValue === "hard") {
+    export_table_to_csv(document, "leetcode_hardstats.csv");
+  }
 });
 
 difficultySelectorDiv.addEventListener("change", function () {
-  const selectedValue =
+  selectedValue =
     difficultySelectorDiv.options[difficultySelectorDiv.selectedIndex].value;
   clearUI();
   if (selectedValue == "all") {
