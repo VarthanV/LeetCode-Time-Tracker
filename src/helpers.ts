@@ -9,14 +9,16 @@ export function getTimeasString(seconds: number, mins: number, hours: number) {
   }
   
   else if (mins > 0) {
-    return `${normalize(mins)}m `;
+    return `${normalize(mins)}m`;
   } else if (seconds > 0) {
     return `${normalize(seconds)}s`;
   }
 }
 // Removes trailing zeroes from the TimeStamp
-function normalize(num: number) {
+export function normalize(num: number) {
+  
   let n = Math.floor(num);
   return n;
 }
+
 
