@@ -3,12 +3,13 @@ body {
   padding: 0;
   font-family: "Open Sans", sans-serif;
   font-size: 100%;
-  width: 500px;
+  width: 550px;
   height: 453px;
   box-sizing: border-box;
 }
 .main-div {
   overflow-y: auto;
+  overflow-x: auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -95,9 +96,17 @@ a {
 
 #reset {
   background-color: #0984e3;
+  cursor: pointer;
 }
+
+
 #save {
   background-color: #00b894;
+}
+
+#reset:hover,#start:hover,#save:hover{
+  opacity: 0.9;
+  cursor: pointer;
 }
 .timer-wrapper {
   background-color: #81ecec;
@@ -144,7 +153,8 @@ th {
   font-weight: bolder;
 }
 .table-wrapper table {
-  margin-left: 3%;
+  
+  margin-right: 4%;
 }
 
 table {
@@ -180,6 +190,9 @@ a {
  
   cursor: pointer;
 }
+.btn:hover{
+  opacity: 0.9;
+}
 #name-wrapper {
   display: flex;
   align-items: center;
@@ -196,3 +209,4 @@ a {
 #difficulty-selector option {
   text-align: center;
 }
+

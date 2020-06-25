@@ -2,21 +2,21 @@
 export function getTimeasString(seconds: number, mins: number, hours: number) {
 
   if (hours > 0 && mins >0 ) {
-    return `${normalize(hours)}hr ${normalize(mins)}min`;
+    return `${normalize(hours)}hr ${normalize(mins)}minutes`;
   } 
   else if(hours > 0 ){
-    return `${normalize(hours)}hr`;
+    return `${normalize(hours)} hour`;
   }
   
   else if (mins > 0) {
-    return `${normalize(mins)}m`;
+    return `${normalize(mins)} minutes`;
   } else if (seconds > 0) {
-    return `${normalize(seconds)}s`;
+    return `${normalize(seconds)} seconds`;
   }
 }
 // Removes trailing zeroes from the TimeStamp
 export function normalize(num: number) {
-  
+
   let n = Math.floor(num);
   return n;
 }

@@ -78,7 +78,7 @@ difficultySelectorDiv.addEventListener("change", function () {
     renderItem(easyProblems, selectedValue);
   } else if (selectedValue === "medium") {
     renderItem(mediumProblems, selectedValue);
-  } else if (selectedValue == " hard") {
+  } else if (selectedValue == "hard") {
     renderItem(hardProblems, selectedValue);
   }
 });

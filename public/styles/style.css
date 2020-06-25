@@ -95,9 +95,17 @@ a {
 
 #reset {
   background-color: #0984e3;
+  cursor: pointer;
 }
+
+
 #save {
   background-color: #00b894;
+}
+
+#reset:hover,#start:hover,#save:hover{
+  opacity: 0.9;
+  cursor: pointer;
 }
 .timer-wrapper {
   background-color: #81ecec;
@@ -180,6 +188,9 @@ a {
  
   cursor: pointer;
 }
+.btn:hover{
+  opacity: 0.9;
+}
 #name-wrapper {
   display: flex;
   align-items: center;
@@ -196,3 +207,4 @@ a {
 #difficulty-selector option {
   text-align: center;
 }
+
