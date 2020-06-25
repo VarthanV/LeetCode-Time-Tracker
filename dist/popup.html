@@ -16,9 +16,7 @@
   <body>
     <p class="title">LeetCode Time Extension</p>
     <!-- Options Page -->
-    <div class="pages-block" id="options-block">
-    
-    </div>
+    <div class="pages-block" id="options-block"></div>
     <div id="test-div" class="problem-description">
       <span class="problem-name">Problem Name : </span>
       <span class="problem-name-div" id="problem-title"></span>
@@ -28,51 +26,53 @@
       </div>
     </div>
     <div class="timer-wrapper">
-    <div id="timer-div">
-      <h1>
-        <span id="hour">00</span> : <span id="min">00</span> :
-        <span id="sec">00</span> :
-        <span id="milisec">00</span>
-      </h1>
+      <div id="timer-div">
+        <h1>
+          <span id="hour">00</span> : <span id="min">00</span> :
+          <span id="sec">00</span> :
+          <span id="milisec">00</span>
+        </h1>
+      </div>
+      <div id="button-div">
+        <button id="start">Start</button>
+        <button id="reset">Reset</button>
+        <button id="save">Save</button>
+      </div>
     </div>
-    <div id="button-div">
-      <button id="start">Start</button>
-      <button id="reset">Reset</button>
-      <button id="save">Save</button>
+
+    <div class="chart-wrapper">
+      <div class="button-wrapper">
+        <p>Your Statistics</p>
+        <div></div>
+      </div>
+      <div class="chart-div">
+        <canvas id="myChart" width="200" height="200"></canvas>
+      </div>
     </div>
-  </div>
-  
- <div class="chart-wrapper">
-    <div class="button-wrapper">
-    <p> Your Statistics </p>
-    <div>
-    <!-- <a class="btn" id="options-btn"> Total Statistics</a> -->
-  </div> 
-  </div>
-  <div class="chart-div">
-  <canvas id="myChart" width="200" height="200"></canvas>
-</div>
- 
-</div>
 
+    <div class="table-wrapper">
+      <div id="name-wrapper">
+        <p>Problems List</p>
 
+        <button class="btn" id="export-to-csv">Export to CSV</button>
+      </div>
+      <table>
+        <select id="difficulty-selector">
+          <option value="all">All </option>
+          <option value="easy"> Easy</option>
+          <option value="medium"> Medium </option>
+          <option value="hard"> Hard</option>
+        </select>
 
-  <div class="table-wrapper" >
-    <p> Problems List </p>
-    <table>
-     
-  <tr id="table-heading">
-    <td>Name</td>
-    <td>Difficulty</td>
-    <td>TimeTaken</td>
-    <td> Date Solved</td>
-    
-  </tr>
-  <tbody id="problem-table">
-
-  </tbody>
-</table>
-</div>
+        <tr id="table-heading">
+          <td>Name</td>
+          <td>Difficulty</td>
+          <td>TimeTaken</td>
+          <td>Date Solved</td>
+        </tr>
+        <tbody id="problem-table"></tbody>
+      </table>
+    </div>
     <script src="js/popup.js"></script>
   </body>
 </html>

@@ -40,7 +40,6 @@ body {
 
   width: 350px;
   padding: 12px;
-
 }
 .problem-name {
   font-weight: bold;
@@ -49,7 +48,6 @@ body {
 .difficulty-name {
   font-weight: bold;
   font-size: 16px;
- 
 }
 .problem-name-div {
   font-size: 16px;
@@ -58,7 +56,7 @@ body {
   color: green;
 }
 .medium {
-  color: #F39147;
+  color: #f39147;
 }
 .hard {
   color: red;
@@ -68,58 +66,50 @@ body {
   margin-top: 10px;
 }
 
-a{
+a {
   text-decoration: none;
   color: black;
-
 }
-#timer-div{
+#timer-div {
   display: flex;
   align-items: center;
   justify-content: center;
-
-
 }
-#button-div{
+#button-div {
   display: flex;
   align-items: center;
   justify-content: center;
-
 }
-#button-div button{
+#button-div button {
   margin: 5px;
   padding: 10px 25px;
   color: white;
   outline: none;
   border: none;
-  border: 1px ;
+  border: 1px;
 }
 
-  
-#start{
+#start {
   background-color: #d63031;
-
 }
 
-#reset{
-  background-color:#0984e3;
+#reset {
+  background-color: #0984e3;
 }
-#save{
+#save {
   background-color: #00b894;
 }
-.timer-wrapper{
+.timer-wrapper {
   background-color: #81ecec;
   margin-top: 5px;
 }
-.chart-wrapper{
+.chart-wrapper {
   margin-top: 20px;
-
 }
-.button-wrapper{
+.button-wrapper {
   display: flex;
   align-items: center;
   justify-content: space-around;
-
 }
 .chart-wrapper p {
   margin-left: 20%;
@@ -127,27 +117,28 @@ a{
 
   font-weight: bolder;
 }
-.chart-wrapper .btn{
-  padding:10px 20px;
+.chart-wrapper .btn {
+  padding: 10px 20px;
   border: 1px solid;
 }
-#table-div{
+#table-div {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-
-table, td, th {  
+table,
+td,
+th {
   border: 1px solid #ddd;
   text-align: center;
 }
-.chart-div{
+.chart-div {
   width: 300px;
   height: 300px;
   margin-left: 20%;
 }
-.table-wrapper p{
+.table-wrapper p {
   margin-left: 35%;
   font-size: 18px;
   font-weight: bolder;
@@ -161,15 +152,46 @@ table {
   width: 100%;
 }
 
-th, td {
+th,
+td {
   padding: 20px;
   width: inherit;
 }
 
-#table-heading{
+a {
+  color: blue;
+}
+
+#table-heading {
   font-weight: bolder;
   font-size: 14px;
-  background-color:black;
+  background-color: black;
   color: white;
   letter-spacing: 2px;
+}
+.btn {
+  display: inline;
+  text-decoration: none;
+  color: black;
+  border: 1px solid;
+  padding: 10px 25px;
+  outline: none;
+  background-color: white;
+  cursor: pointer;
+}
+#name-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+#difficulty-selector {
+  margin-left: 10px;
+  margin-bottom: 5px;
+  padding: 5px 20px;
+  background-color: white;
+  outline: none;
+}
+#difficulty-selector option {
+  text-align: center;
 }

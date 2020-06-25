@@ -2,16 +2,16 @@
 export function getTimeasString(seconds: number, mins: number, hours: number) {
 
   if (hours > 0 && mins >0 ) {
-    return `${normalize(hours)} hr ${normalize(mins)} min`;
+    return `${normalize(hours)}hr ${normalize(mins)}min`;
   } 
   else if(hours > 0 ){
-    return `${normalize(hours)} hr`;
+    return `${normalize(hours)}hr`;
   }
   
   else if (mins > 0) {
-    return `${normalize(mins)} m `;
+    return `${normalize(mins)}m `;
   } else if (seconds > 0) {
-    return `${normalize(seconds)} s`;
+    return `${normalize(seconds)}s`;
   }
 }
 // Removes trailing zeroes from the TimeStamp
