@@ -7,7 +7,7 @@ let timeString;
 let currentUrl;
 
 // Setting Popup dynamically
-chrome.browserAction.setBadgeBackgroundColor({ color: "#5CAD62"});
+chrome.browserAction.setBadgeBackgroundColor({ color: "#5CAD62" });
 
 chrome.tabs.onActivated.addListener(function (activeInfo) {
   let urlRegex: RegExp = new RegExp("https://leetcode.com/problems/*");
@@ -59,6 +59,15 @@ function startStop() {
     document.getElementById("start").innerHTML = "Start";
     startstop = 0;
     stopTimer();
+  }
+}
+function updateButtonDom() {
+  let document = chrome.extension.getViews({ type: "popup" })[0].document;
+
+  if (startstop == 1) {
+    document.getElementById("start").innerHTML = "Pause";
+  } else if (startstop == 2) {
+    document.getElementById("start").innerHTML = "Start";
   }
 }
 
@@ -127,6 +136,7 @@ function timer() {
     document.getElementById("sec").innerHTML = secOut.toString();
     document.getElementById("min").innerHTML = minOut.toString();
     document.getElementById("hour").innerHTML = hourOut.toString();
+    updateButtonDom();
   }
 
   // Update the badge Text
