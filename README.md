@@ -33,6 +33,7 @@ Export your progress as CSV for further use
 
 # Features yet to come
 - Setting time limit yourselves
+- Sort by Date
 
 Incase you have worked on above features submit a Pull Request   [Pull Request](https://github.com/VarthanV/LeetCode-Time-Tracker/pulls)
 
