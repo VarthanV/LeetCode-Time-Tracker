@@ -9,19 +9,19 @@ let currentUrl;
 // Setting Popup dynamically
 chrome.browserAction.setBadgeBackgroundColor({ color: "#5CAD62" });
 
-chrome.tabs.onActivated.addListener(function (activeInfo) {
-  let urlRegex: RegExp = new RegExp("https://leetcode.com/problems/*");
-  const activeTabId = activeInfo.tabId;
+// chrome.tabs.onActivated.addListener(function (activeInfo) {
+//   let urlRegex: RegExp = new RegExp("https://leetcode.com/problems/*");
+//   const activeTabId = activeInfo.tabId;
 
-  chrome.tabs.get(activeTabId, function (tab) {
-    currentUrl = tab.url;
-    if (urlRegex.test(currentUrl)) {
-      chrome.browserAction.setPopup({ popup: "popup.html" });
-    } else {
-      chrome.browserAction.setPopup({ popup: "invalid.html" });
-    }
-  });
-});
+//   chrome.tabs.get(activeTabId, function (tab) {
+//     currentUrl = tab.url;
+//     if (urlRegex.test(currentUrl)) {
+//       chrome.browserAction.setPopup({ popup: "popup.html" });
+//     } else {
+//       chrome.browserAction.setPopup({ popup: "invalid.html" });
+//     }
+//   });
+// });
 
 // Persisting Data Stuffst
 
