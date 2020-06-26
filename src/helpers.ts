@@ -13,6 +13,9 @@ export function getTimeasString(seconds: number, mins: number, hours: number) {
   } else if (seconds > 0) {
     return `${normalize(seconds)} seconds`;
   }
+  else {
+    return '0 seconds (:(:';
+  }
 }
 // Removes trailing zeroes from the TimeStamp
 export function normalize(num: number) {

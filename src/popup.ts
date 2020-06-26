@@ -22,6 +22,7 @@ const millisecondsDiv = document.getElementById("milisec") as HTMLSpanElement;
 const secondsDiv = document.getElementById("sec") as HTMLSpanElement;
 const minutesDiv = document.getElementById("min") as HTMLSpanElement;
 const hoursDiv = document.getElementById("hour") as HTMLSpanElement;
+const searchQueryDiv = document.getElementById('search-text') as HTMLInputElement;
 
 // Buttons Div
 
@@ -31,6 +32,7 @@ const saveBtn = document.getElementById("save") as HTMLButtonElement;
 const exportToCSVButton = document.getElementById(
   "export-to-csv"
 ) as HTMLButtonElement;
+const searchBtn  =document.getElementById('search-btn') as HTMLButtonElement;
 // Get Title of the Current Page and URL
 const backgroundPage = chrome.extension.getBackgroundPage();
 let easyProblems;
@@ -59,6 +61,9 @@ saveBtn.addEventListener("click", function () {
   backgroundPage.saveData();
 });
 
+searchBtn.addEventListener('click',function(){
+  search();
+})
 exportToCSVButton.addEventListener("click", function () {
   if (selectedValue === "all") {
     export_table_to_csv(document, "leetcodestats.csv");
@@ -329,4 +334,26 @@ function export_table_to_csv(html, filename) {
 
   // Download CSV
   download_csv(csv.join("\n"), filename);
+}
+
+// Search Logic
+
+function search(){
+//  Spreading problems 
+console.log("hey");
+
+let problems = [...easyProblems,...mediumProblems,...hardProblems];
+let query = searchQueryDiv.value;
+query  =query.toLowerCase();
+console.log(query);
+
+let searches = problems.filter(item => {
+  return item.problemName.toLowerCase().includes(query)
+});
+console.log(searches);
+
+
+
+
+
 }

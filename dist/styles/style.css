@@ -203,8 +203,21 @@ a {
   padding: 5px 20px;
   background-color: white;
   outline: none;
+  margin-top: 10px;
 }
 #difficulty-selector option {
   text-align: center;
 }
 
+#search-div{
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  margin-top: 20px;
+}
+#search-div input{
+  outline: none;
+  padding:  5px  12px;
+  width: 60%;
+
+}
