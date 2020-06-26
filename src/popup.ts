@@ -22,7 +22,9 @@ const millisecondsDiv = document.getElementById("milisec") as HTMLSpanElement;
 const secondsDiv = document.getElementById("sec") as HTMLSpanElement;
 const minutesDiv = document.getElementById("min") as HTMLSpanElement;
 const hoursDiv = document.getElementById("hour") as HTMLSpanElement;
-const searchQueryDiv = document.getElementById('search-text') as HTMLInputElement;
+const searchQueryDiv = document.getElementById(
+  "search-text"
+) as HTMLInputElement;
 
 // Buttons Div
 
@@ -32,7 +34,7 @@ const saveBtn = document.getElementById("save") as HTMLButtonElement;
 const exportToCSVButton = document.getElementById(
   "export-to-csv"
 ) as HTMLButtonElement;
-const searchBtn  =document.getElementById('search-btn') as HTMLButtonElement;
+const searchBtn = document.getElementById("search-btn") as HTMLButtonElement;
 // Get Title of the Current Page and URL
 const backgroundPage = chrome.extension.getBackgroundPage();
 let easyProblems;
@@ -61,9 +63,9 @@ saveBtn.addEventListener("click", function () {
   backgroundPage.saveData();
 });
 
-searchBtn.addEventListener('click',function(){
+searchBtn.addEventListener("click", function () {
   search();
-})
+});
 exportToCSVButton.addEventListener("click", function () {
   if (selectedValue === "all") {
     export_table_to_csv(document, "leetcodestats.csv");
@@ -166,8 +168,6 @@ function specialCase(
   minute: number,
   hour: number
 ) {
-  
-  
   if (milisec === 0 && second === 0 && minute === 0 && hour === 0) {
     return true;
   }
@@ -258,7 +258,7 @@ function renderTable() {
 Renders Each Individual Table item
 
 */
-function renderItem(items, classname) {
+function renderItem(items, classname?) {
   for (const item of items) {
     const row = document.createElement("tr");
     const timeTaken = document.createElement("td");
@@ -272,7 +272,10 @@ function renderItem(items, classname) {
     problemLink.setAttribute("target", "blank");
     problemName.appendChild(problemLink);
     difficulty.innerText = item.difficulty;
-    difficulty.classList.add(classname);
+    difficulty.classList.add(
+      classname !== undefined ? classname : item.difficulty.toLowerCase()
+    );
+
     timeTaken.innerText = item.timeTaken;
     dateSolved.innerText = item.date;
 
@@ -292,8 +295,11 @@ Credits : https://jsfiddle.net/gengns/j1jm2tjx/
 
 */
 function download_csv(csv, filename) {
-  var csvFile;
-  var downloadLink;
+let csvFile;
+let downloadLink;
+
+
+
 
   // CSV FILE
   csvFile = new Blob([csv], { type: "text/csv" });
@@ -315,12 +321,17 @@ function download_csv(csv, filename) {
 
   // Lanzamos
   downloadLink.click();
+
 }
+
+
+
 
 function export_table_to_csv(html, filename) {
   var csv = [];
+  let tRowsLength = tableDiv.querySelectorAll('tr').length;
   var rows = document.querySelectorAll("table tr");
-
+  if(tRowsLength > 0){
   for (var i = 0; i < rows.length; i++) {
     var row = [],
       cols = rows[i].querySelectorAll("td, th");
@@ -334,26 +345,33 @@ function export_table_to_csv(html, filename) {
 
   // Download CSV
   download_csv(csv.join("\n"), filename);
+
+}
+else{
+  alert("Nothing to Export")
+}
 }
 
 // Search Logic
 
-function search(){
-//  Spreading problems 
-console.log("hey");
+function search() {
+  //  Spreading problems
 
-let problems = [...easyProblems,...mediumProblems,...hardProblems];
-let query = searchQueryDiv.value;
-query  =query.toLowerCase();
-console.log(query);
+  let problems = [...easyProblems, ...mediumProblems, ...hardProblems];
+  let query = searchQueryDiv.value;
+  query = query.toLowerCase();
 
-let searches = problems.filter(item => {
-  return item.problemName.toLowerCase().includes(query)
-});
-console.log(searches);
-
-
-
-
-
+  let searches = problems.filter((item) => {
+    return item.problemName.toLowerCase().includes(query);
+  });
+  clearUI()
+  if (searches.length > 0) {
+  
+    renderItem(searches);
+  }
+  else{
+    const spanElem  =document.createElement('span');
+    spanElem.innerText = 'Oops ! Nothing found'
+    tableDiv.appendChild(spanElem);
+  }
 }
