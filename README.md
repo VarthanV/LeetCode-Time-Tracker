@@ -22,13 +22,16 @@ Sort by difficulty
 
 ![shot3](/screenshots/shot3.png)
 
+Search Specific Problems
+
+![shot5](/screenshots/shot5.png)
+
 Export your progress as CSV for further use
 
 ![shot2](/screenshots/shot2.png)
 
 
 # Features yet to come
-- Searching
 - Setting time limit yourselves
 
 Incase you have worked on above features submit a Pull Request   [Pull Request](https://github.com/VarthanV/LeetCode-Time-Tracker/pulls)
