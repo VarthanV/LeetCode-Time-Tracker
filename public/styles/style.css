@@ -3,7 +3,7 @@ body {
   padding: 0;
   font-family: "Open Sans", sans-serif;
   font-size: 100%;
-  width: 500px;
+  width: 600px;
   height: 453px;
   box-sizing: border-box;
 }
@@ -152,7 +152,7 @@ th {
   font-weight: bolder;
 }
 .table-wrapper table {
-  margin-left: 3%;
+  margin-left: 0%;
 }
 
 table {
