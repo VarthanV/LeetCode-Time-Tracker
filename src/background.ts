@@ -18,6 +18,13 @@ let hourOut = 0;
 chrome.browserAction.setBadgeBackgroundColor({ color: "#5CAD62" });
 
 
+chrome.tabs.onActivated.addListener(function (activeInfo) {
+  const activeTabId = activeInfo.tabId;
+  chrome.tabs.get(activeTabId, function (tab) {
+    currentUrl = tab.url;
+    
+  });
+});
 
 // Persisting Data Stuffst
 
