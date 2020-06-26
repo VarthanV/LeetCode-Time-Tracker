@@ -8,6 +8,15 @@ LeetCode TimeTracker Extension helps you to track the time that you take to solv
 # Installation
 Install the extension from the Chrome WebStore (Due to Technical error in Chrome Store the package couldn't be uploaded)
 
+# Users installing from Github
+
+
+- Clone the Repo
+- Select **Load Unpacked** Extension from the Extensions Page(Make sure Developers Options is enabled).
+- Select the **dist** folder in the repo
+
+You are good to go !
+
 # Screenshots
  A timer badge that helps you to  keep an eye on time while solving problem.
 
@@ -33,6 +42,7 @@ Export your progress as CSV for further use
 
 # Features yet to come
 - Setting time limit yourselves
+- Sort by Date
 
 Incase you have worked on above features submit a Pull Request   [Pull Request](https://github.com/VarthanV/LeetCode-Time-Tracker/pulls)
 
