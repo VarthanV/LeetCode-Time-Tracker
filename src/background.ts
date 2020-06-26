@@ -5,23 +5,19 @@ import { getTimeasString } from "./helpers";
 let windowObj = <any>window;
 let timeString;
 let currentUrl;
+let milisec = 0;
+let sec = 0; /* holds incrementing value */
+let min = 0;
+let hour = 0;
+let miliSecOut = 0;
+let secOut = 0;
+let minOut = 0;
+let hourOut = 0;
 
 // Setting Popup dynamically
 chrome.browserAction.setBadgeBackgroundColor({ color: "#5CAD62" });
 
-// chrome.tabs.onActivated.addListener(function (activeInfo) {
-//   let urlRegex: RegExp = new RegExp("https://leetcode.com/problems/*");
-//   const activeTabId = activeInfo.tabId;
 
-//   chrome.tabs.get(activeTabId, function (tab) {
-//     currentUrl = tab.url;
-//     if (urlRegex.test(currentUrl)) {
-//       chrome.browserAction.setPopup({ popup: "popup.html" });
-//     } else {
-//       chrome.browserAction.setPopup({ popup: "invalid.html" });
-//     }
-//   });
-// });
 
 // Persisting Data Stuffst
 
@@ -39,6 +35,17 @@ chrome.runtime.onMessage.addListener(function (
       sendResponse(problem);
     } else if (request.action == "setTimer") {
       startStop();
+    } else if (request.action == "getTimer") {
+      sendResponse({ startstop: startstop });
+    }
+    else if(request.action === 'getCurrentTime'){
+
+      sendResponse({
+        miliSecOut:miliSecOut,
+        hourOut:hourOut,
+        secOut:secOut,
+        minOut:minOut
+      })
     }
   }
 });
@@ -61,15 +68,6 @@ function startStop() {
     stopTimer();
   }
 }
-function updateButtonDom() {
-  let document = chrome.extension.getViews({ type: "popup" })[0].document;
-
-  if (startstop == 1) {
-    document.getElementById("start").innerHTML = "Pause";
-  } else if (startstop == 2) {
-    document.getElementById("start").innerHTML = "Start";
-  }
-}
 
 // Creating my Custom Window object since Typescript doesnt allow much flexiblity
 windowObj.startStop = startStop;
@@ -84,18 +82,12 @@ function startTimer() {
 
 // Stops the timer
 function stopTimer() {
+ 
   clearInterval(x);
 }
 
 // Declaring Variables
-let milisec = 0;
-let sec = 0; /* holds incrementing value */
-let min = 0;
-let hour = 0;
-let miliSecOut = 0;
-let secOut = 0;
-let minOut = 0;
-let hourOut = 0;
+
 // Driver for Timer
 function timer() {
   let popup = chrome.extension.getViews({ type: "popup" })[0];
@@ -136,7 +128,7 @@ function timer() {
     document.getElementById("sec").innerHTML = secOut.toString();
     document.getElementById("min").innerHTML = minOut.toString();
     document.getElementById("hour").innerHTML = hourOut.toString();
-    updateButtonDom();
+    
   }
 
   // Update the badge Text
@@ -167,7 +159,10 @@ function reset() {
   sec = 0;
   min = 0;
   hour = 0;
-
+  miliSecOut = 0;
+  hourOut = 0;
+  minOut =0;
+  secOut =0;
   document.getElementById("milisec").innerHTML = "00";
   document.getElementById("sec").innerHTML = "00";
   document.getElementById("min").innerHTML = "00";

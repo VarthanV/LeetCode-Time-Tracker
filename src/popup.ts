@@ -18,6 +18,10 @@ const tableDiv = document.querySelector("#problem-table");
 const difficultySelectorDiv = document.querySelector(
   "#difficulty-selector"
 ) as HTMLSelectElement;
+const millisecondsDiv = document.getElementById("milisec") as HTMLSpanElement;
+const secondsDiv = document.getElementById("sec") as HTMLSpanElement;
+const minutesDiv = document.getElementById("min") as HTMLSpanElement;
+const hoursDiv = document.getElementById("hour") as HTMLSpanElement;
 
 // Buttons Div
 
@@ -32,7 +36,7 @@ const backgroundPage = chrome.extension.getBackgroundPage();
 let easyProblems;
 let mediumProblems;
 let hardProblems;
-let selectedValue = 'all';
+let selectedValue = "all";
 //  Background Page
 
 /*
@@ -56,7 +60,6 @@ saveBtn.addEventListener("click", function () {
 });
 
 exportToCSVButton.addEventListener("click", function () {
-  
   if (selectedValue === "all") {
     export_table_to_csv(document, "leetcodestats.csv");
   } else if (selectedValue === "easy") {
@@ -98,11 +101,11 @@ document.addEventListener("DOMContentLoaded", function () {
 function renderTimerPage() {
   let problemDict: Problem = {};
 
+  // Get the Problem's Name and update DOMM
   const action: Action = {
     action: "getProblem",
   };
   chrome.runtime.sendMessage(action, function (response: Problem) {
-
     problemDict.problemName = response.problemName;
     problemDict.difficulty = response.difficulty;
     if (problemDict.problemName) {
@@ -114,8 +117,57 @@ function renderTimerPage() {
       difficultyDiv.classList.add(difficulty.toLowerCase());
     }
   });
+
+  // Get the Current State and update DOM
+  const timerAction: Action = {
+    action: "getTimer",
+  };
+  chrome.runtime.sendMessage(timerAction, function (response) {
+    if (response.startstop == 1) {
+      document.getElementById("start").innerHTML = "Pause";
+    } else if (response.startstop == 2) {
+      document.getElementById("start").innerHTML = "Start";
+    }
+  });
+
+  //  Get how much time has elapsed
+  const getCurrentTimeAction: Action = {
+    action: "getCurrentTime",
+  };
+  chrome.runtime.sendMessage(getCurrentTimeAction, function (response) {
+    const result = specialCase(
+      response.miliSecOut,
+      response.secOut,
+      response.minOut,
+      response.hourOut
+    );
+    if (result) {
+      millisecondsDiv.innerText = "00";
+      secondsDiv.innerText = "00";
+      minutesDiv.innerText = "00";
+      hoursDiv.innerText = "00";
+    } else {
+      millisecondsDiv.innerText = response.miliSecOut.toString();
+      secondsDiv.innerText = response.secOut.toString();
+      minutesDiv.innerText = response.minOut.toString();
+      hoursDiv.innerText = response.hourOut.toString();
+    }
+  });
 }
 
+function specialCase(
+  milisec: number,
+  second: number,
+  minute: number,
+  hour: number
+) {
+  
+  
+  if (milisec === 0 && second === 0 && minute === 0 && hour === 0) {
+    return true;
+  }
+  return false;
+}
 // Listeners
 
 // Listens for Changes and update UI  Accordingly

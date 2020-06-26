@@ -6,8 +6,7 @@
 LeetCode TimeTracker Extension helps you to track the time that you take to solve a problem and helps you to make progress
 
 # Installation
-Install the extension from the Chrome WebStore [https://chrome.google.com/webstore/detail/leetcode-time-tracker/ajjgccnlomindbgkfiicnbffggmbgcng?hl=en&authuser=0](https://chrome.google.com/webstore/detail/leetcode-time-tracker/ajjgccnlomindbgkfiicnbffggmbgcng?hl=en&authuser=0)
-
+Install the extension from the Chrome WebStore (Due to Technical error in Chrome Store the package couldn't be uploaded)
 
 # Screenshots
  A timer badge that helps you to  keep an eye on time while solving problem.
