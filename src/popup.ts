@@ -50,7 +50,7 @@ let mediumProblems;
 let hardProblems;
 let selectedValue = "all";
 let selectedDate = null;
-
+let dateString = "";
 //  Background Page
 
 /*
@@ -103,6 +103,9 @@ difficultySelectorDiv.addEventListener("change", function () {
       renderItem(hardProblems, selectedValue);
     }
   }
+  else{
+    renderWithRespectToDate();
+  }
 });
 datePickerDiv.addEventListener("change", function () {
   selectedDate = datePickerDiv.value;
@@ -112,7 +115,11 @@ datePickerDiv.addEventListener("change", function () {
   let mm = String(selectedDate.getMonth() + 1).padStart(2, "0"); //January is 0!
   let yyyy = selectedDate.getFullYear();
 
-  const dateString = dd + "/" + mm + "/" + yyyy;
+  dateString = dd + "/" + mm + "/" + yyyy;
+  renderWithRespectToDate();
+});
+
+function renderWithRespectToDate() {
   let easyProblemsRender = easyProblems.filter((item) => {
     return item.date === dateString;
   });
@@ -135,7 +142,7 @@ datePickerDiv.addEventListener("change", function () {
   } else if (selectedValue === "hard") {
     renderItem(hardProblemsRender, "hard");
   }
-});
+}
 // Search Triggers when enter key is pressed
 searchQueryDiv.addEventListener("keypress", function (e) {
   if (e.key === "Enter") {
@@ -148,7 +155,7 @@ clearBtn.addEventListener("click", function () {
   selectedDate = null;
   datePickerDiv.value = null;
   selectedValue = "all";
-  difficultySelectorDiv.value = 'all';
+  difficultySelectorDiv.value = "all";
   clearUI();
   renderTable();
 });
