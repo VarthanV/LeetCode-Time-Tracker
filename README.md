@@ -41,8 +41,11 @@ Export your progress as CSV for further use
 
 
 # Features yet to come
+- Dark mode
 - Setting time limit yourselves
 - Sort by Date
+- Supporting Platforms like HackerRank ,CodeChef
+
 
 Incase you have worked on above features submit a Pull Request   [Pull Request](https://github.com/VarthanV/LeetCode-Time-Tracker/pulls)
 
