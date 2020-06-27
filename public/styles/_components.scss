@@ -48,12 +48,23 @@
     justify-content: center;
   }
 
-  #sec {
-    font-size: 3rem;
-  }
+  .timer {
+    font-size: 4rem;
 
-  #milisec {
-    font-size: 1.5rem;
+    &>span {
+      display: inline-block;
+    }
+
+    #sec {
+      width: 2rem;
+      font-size: 3rem;
+    }
+
+    #milisec {
+      width: 2rem;
+      margin-left: .5rem;
+      font-size: 1.5rem;
+    }
   }
 }
 
@@ -115,5 +126,24 @@
     border: 1px solid darken($used-color, 10%);
 
     @include hoverSetter($used-color);
+  }
+}
+
+.table-wrapper {
+  padding: 1rem 0;
+}
+
+.section-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.table {
+  padding: 1rem;
+  width: 100%;
+
+  &__heading {
+    text-transform: uppercase;
   }
 }

@@ -24,13 +24,11 @@
     </div>
   </div>
   <div class="timer-wrapper text-center">
-    <div id="timer-div">
-      <h2>
-        <span id="hour">0</span>h
-        <span id="min">0</span>m
-        <span id="sec">0</span>
-        <span id="milisec">0</span>
-      </h2>
+    <div class="timer" id="timer-div">
+      <span id="hour">0</span>h
+      <span id="min">0</span>m
+      <span id="sec">0</span>
+      <span id="milisec">0</span>
     </div>
     <div class="actions" id="button-div">
       <button class="btn btn-actions btn-start" id="start">Start</button>
@@ -41,7 +39,7 @@
 
   <div class="chart-wrapper">
     <div class="button-wrapper">
-      <h3>Your Statistics</h3>
+      <h3 class="side-heading">Your Statistics</h3>
       <div></div>
     </div>
     <div class="chart-div">
@@ -50,8 +48,8 @@
   </div>
 
   <div class="table-wrapper">
-    <div id="name-wrapper">
-      <h3>Problems List</h3>
+    <div class="section-title" id="name-wrapper">
+      <h3 class="side-heading">Problems List</h3>
 
       <button class="btn" id="export-to-csv">Export to CSV</button>
     </div>
@@ -60,7 +58,7 @@
       <button id="search-btn" class="btn"> Search </button>
 
     </div>
-    <table>
+    <table class="table">
       <select id="difficulty-selector">
         <option value="all">All </option>
         <option value="easy"> Easy</option>
@@ -68,13 +66,13 @@
         <option value="hard"> Hard</option>
       </select>
 
-      <tr id="table-heading">
+      <tr class="table__heading" id="table-heading">
         <td>Name</td>
         <td>Difficulty</td>
         <td>TimeTaken</td>
         <td>Date Solved</td>
       </tr>
-      <tbody id="problem-table"></tbody>
+      <tbody class="table__body" id="problem-table"></tbody>
     </table>
   </div>
   <script src="js/popup.js"></script>

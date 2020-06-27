@@ -24,6 +24,7 @@ select,
 label {
   font: $font-weight-default $font-size-default $font-family-default;
   padding: .6rem;
+  margin: 1rem;
 }
 
 button {
@@ -70,10 +71,10 @@ h6 {
 /* Handle */
 ::-webkit-scrollbar-thumb {
   border-radius: 2px;
-  background: $color-primary;
-  box-shadow: inset 0 0 6px rgba($color-black, .5);
+  background: darken($color-gray-3, 10%);
+  // box-shadow: inset 0 0 6px rgba($color-black, .5);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: darken($color-primary, 10%);
+  background: darken($color-gray-3, 20%);
 }
