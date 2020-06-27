@@ -6,7 +6,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone"
     rel="stylesheet">
-
   <!-- CSS -->
   <link rel="stylesheet" href="./styles/style.css" />
   <meta charset="UTF-8" />
@@ -19,12 +18,9 @@
   <h1 class="title text-center">LeetCode Timer</h1>
   <!-- Options Page -->
   <div class="pages-block" id="options-block"></div>
-  <div class="current-problem">
-    <span class="current-problem__name" id="problem-title">Problem Name</span>
-    <div>
-      <span class="current-problem__difficulty current-problem__difficulty-easy"
-        id="problem-difficulty">Difficulty</span>
-    </div>
+  <div class="current-problem"><span class="current-problem__name" id="problem-title">Problem Name</span>
+    <div><span class="current-problem__difficulty current-problem__difficulty-easy"
+        id="problem-difficulty">Difficulty</span></div>
   </div>
   <div class="timer-wrapper text-center">
     <div class="timer" id="timer-div">
@@ -35,59 +31,41 @@
     </div>
     <div class="actions" id="button-div">
       <button class="btn btn-actions btn-start" id="start">
-        <span class="material-icons material-icons-outlined">
-          arrow_forward_ios
-        </span>
+        <span class="material-icons material-icons-outlined">arrow_forward_ios </span>
         <span class="btn-txt">Start</span>
       </button>
       <button class="btn btn-actions btn-reset" id="reset">
-        <span class="material-icons material-icons-outlined">
-          update
-        </span>
-        <span class="btn-txt">Reset</span></button>
-      <button class="btn btn-actions btn-save" id="save"><span class="material-icons material-icons-outlined">
-          save
-        </span>
+        <span class="material-icons material-icons-outlined">update </span>
+        <span class="btn-txt">Reset</span>
+      </button>
+      <button class="btn btn-actions btn-save" id="save">
+        <span class="material-icons material-icons-outlined">save </span>
         <span class="btn-txt">Save</span>
       </button>
     </div>
   </div>
-
   <div class="chart-wrapper">
     <div class="button-wrapper">
       <h3 class="side-heading">Your Statistics</h3>
       <div></div>
     </div>
-    <div class="chart-div">
-      <canvas id="myChart" width="200" height="200"></canvas>
-    </div>
+    <div class="chart-div"><canvas id="myChart" width="200" height="200"></canvas></div>
   </div>
-
   <div class="table-wrapper">
     <div class="section-title" id="name-wrapper">
-      <h3 class="side-heading">Problems List</h3>
-
-      <button class="btn" id="export-to-csv"><span class="material-icons material-icons-outlined">
-          unarchive
-        </span>
-        <span class="btn-txt">Export as CSV</span></button></button>
+      <h3 class="side-heading">Problems List</h3><button class="btn" id="export-to-csv"><span
+          class="material-icons material-icons-outlined">unarchive </span><span class="btn-txt">Export as
+          CSV</span></button></button>
     </div>
-    <div class="search" id="search-div">
-      <input type="text" class="search__input" required id="search-text">
-      <button id="search-btn" class="btn btn-icon-only search__btn">
-        <span class="material-icons material-icons-outlined">
-          search
-        </span>
-      </button>
-    </div>
-    <table class="table">
-      <select id="difficulty-selector">
+    <div class="search" id="search-div"><input type="text" class="search__input" required id="search-text"><button
+        id="search-btn" class="btn btn-icon-only search__btn"><span
+          class="material-icons material-icons-outlined">search </span></button></div>
+    <table class="table"><select id="difficulty-selector">
         <option value="all">All </option>
-        <option value="easy"> Easy</option>
-        <option value="medium"> Medium </option>
-        <option value="hard"> Hard</option>
+        <option value="easy">Easy</option>
+        <option value="medium">Medium </option>
+        <option value="hard">Hard</option>
       </select>
-
       <tr class="table__heading" id="table-heading">
         <td>Name</td>
         <td>Difficulty</td>

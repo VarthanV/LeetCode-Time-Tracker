@@ -68,9 +68,11 @@ function startStop() {
 
   if (startstop == 1) {
     startTimer();
-    document.getElementById("start").innerHTML = "Pause";
+    document.getElementById("start").innerHTML = `<span class="material-icons material-icons-outlined">pause</span>
+        <span class="btn-txt">Pause</span>`;
   } else if (startstop == 2) {
-    document.getElementById("start").innerHTML = "Start";
+    document.getElementById("start").innerHTML = `<span class="material-icons material-icons-outlined">arrow_forward_ios </span>
+        <span class="btn-txt">Start</span>`;
     startstop = 0;
     stopTimer();
   }
