@@ -1,0 +1,223 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans", sans-serif;
+  font-size: 100%;
+  width: 600px;
+  height: 453px;
+  box-sizing: border-box;
+}
+.main-div {
+  overflow-y: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.title {
+  font-weight: bold;
+  font-size: 22px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pages-block {
+  width: 400px;
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: stretch;
+}
+.active {
+  border-bottom: 1px solid blue;
+  padding: 2px;
+}
+.problem-description {
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  margin-left: 22px;
+
+  width: 350px;
+  padding: 12px;
+}
+.problem-name {
+  font-weight: bold;
+  font-size: 16px;
+}
+.difficulty-name {
+  font-weight: bold;
+  font-size: 16px;
+}
+.problem-name-div {
+  font-size: 16px;
+}
+.easy {
+  color: green;
+}
+.medium {
+  color: #f39147;
+}
+.hard {
+  color: red;
+}
+
+.difficulty {
+  margin-top: 10px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+#timer-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#button-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#button-div button {
+  margin: 5px;
+  padding: 10px 25px;
+  color: white;
+  outline: none;
+  border: none;
+  border: 1px;
+}
+
+#start {
+  background-color: #d63031;
+}
+
+#reset {
+  background-color: #0984e3;
+  cursor: pointer;
+}
+
+
+#save {
+  background-color: #00b894;
+}
+
+#reset:hover,#start:hover,#save:hover{
+  opacity: 0.9;
+  cursor: pointer;
+}
+.timer-wrapper {
+  background-color: #81ecec;
+  margin-top: 5px;
+}
+.chart-wrapper {
+  margin-top: 20px;
+}
+.button-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.chart-wrapper p {
+  margin-left: 20%;
+  font-size: 18px;
+
+  font-weight: bolder;
+}
+.chart-wrapper .btn {
+  padding: 10px 20px;
+  border: 1px solid;
+}
+#table-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+table,
+td,
+th {
+  border: 1px solid #ddd;
+  text-align: center;
+}
+.chart-div {
+  width: 300px;
+  height: 300px;
+  margin-left: 20%;
+}
+.table-wrapper p {
+  margin-left: 35%;
+  font-size: 18px;
+  font-weight: bolder;
+}
+.table-wrapper table {
+  margin-left: 0%;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  padding: 20px;
+  width: inherit;
+}
+
+a {
+  color: blue;
+}
+
+#table-heading {
+  font-weight: bolder;
+  font-size: 14px;
+  background-color: black;
+  color: white;
+  letter-spacing: 2px;
+}
+.btn {
+  display: inline;
+  text-decoration: none;
+  color: white;
+  background-color: black;
+  border: 1px solid;
+  padding: 10px 25px;
+  outline: none;
+ 
+  cursor: pointer;
+}
+.btn:hover{
+  opacity: 0.9;
+}
+#name-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+#difficulty-selector {
+  margin-left: 10px;
+  margin-bottom: 5px;
+  padding: 5px 20px;
+  background-color: white;
+  outline: none;
+  margin-top: 10px;
+}
+#difficulty-selector option {
+  text-align: center;
+}
+
+#search-div{
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  margin-top: 20px;
+}
+#search-div input{
+  outline: none;
+  padding:  5px  12px;
+  width: 60%;
+
+}
