@@ -48,7 +48,7 @@ Export your progress as CSV for further use
 -  Supporting Platforms like HackerRank ,CodeChef
 
 
-# Updated UI Teaser
+# Updated UI Teaser 
 
 ![shot6](/screenshots/shot6.png)
 
