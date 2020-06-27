@@ -1,0 +1,23 @@
+.btn {
+
+  &,
+  &:link,
+  &:active {
+    $used-color: $color-gray-6;
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    background-color: $used-color;
+    border: 1px solid darken($used-color, 10%);
+    border-radius: 2px;
+    padding: 1rem 2rem;
+    outline: none;
+
+    cursor: pointer;
+
+    &:hover {
+      background-color: darken($used-color, 20%);
+      border: 1px solid darken($used-color, 10%);
+    }
+  }
+}
