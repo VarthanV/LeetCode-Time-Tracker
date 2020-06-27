@@ -1,5 +1,6 @@
 import { Problem, Action } from "./types";
 import { Chart } from "chart.js";
+
 //Dev Stuffs
 
 // @ts-ignore
@@ -12,7 +13,7 @@ const problemTitleDiv = document.querySelector(
   "#problem-title"
 ) as HTMLSpanElement;
 const difficultyDiv = document.querySelector(
-  "#difficulty-div"
+  "#problem-difficulty"
 ) as HTMLSpanElement;
 const tableDiv = document.querySelector("#problem-table");
 const difficultySelectorDiv = document.querySelector(
@@ -115,6 +116,8 @@ function renderTimerPage() {
   chrome.runtime.sendMessage(action, function (response: Problem) {
     problemDict.problemName = response.problemName;
     problemDict.difficulty = response.difficulty;
+    console.log(problemDict);
+    
     if (problemDict.problemName) {
       let name = problemDict.problemName.split(".")[1];
       let difficulty = problemDict.difficulty;
@@ -131,9 +134,11 @@ function renderTimerPage() {
   };
   chrome.runtime.sendMessage(timerAction, function (response) {
     if (response.startstop == 1) {
-      document.getElementById("start").innerHTML = "Pause";
+      document.getElementById("start").innerHTML = `<span class="material-icons material-icons-outlined">pause</span>
+        <span class="btn-txt">Pause</span>`;
     } else if (response.startstop == 2) {
-      document.getElementById("start").innerHTML = "Start";
+      document.getElementById("start").innerHTML = `<span class="material-icons material-icons-outlined">arrow_forward_ios </span>
+        <span class="btn-txt">Start</span>`;
     }
   });
 
@@ -193,7 +198,7 @@ function clearUI() {
 }
 
 /*
-Renders Chart 
+Renders Chart
 
 */
 //@ts-ignore
@@ -239,7 +244,7 @@ function renderChart() {
 }
 
 /*
-Renders Table 
+Renders Table
 */
 function renderTable() {
   const items = localStorage.getItem("leetCodeExtensionDetails");
@@ -290,13 +295,13 @@ function renderItem(items, classname?) {
 }
 
 /*
-CSV Helpers 
+CSV Helpers
 Credits : https://jsfiddle.net/gengns/j1jm2tjx/
 
 */
 function download_csv(csv, filename) {
-let csvFile;
-let downloadLink;
+  let csvFile;
+  let downloadLink;
 
 
 
@@ -331,25 +336,25 @@ function export_table_to_csv(html, filename) {
   var csv = [];
   let tRowsLength = tableDiv.querySelectorAll('tr').length;
   var rows = document.querySelectorAll("table tr");
-  if(tRowsLength > 0){
-  for (var i = 0; i < rows.length; i++) {
-    var row = [],
-      cols = rows[i].querySelectorAll("td, th");
+  if (tRowsLength > 0) {
+    for (var i = 0; i < rows.length; i++) {
+      var row = [],
+        cols = rows[i].querySelectorAll("td, th");
 
-    for (var j = 0; j < cols.length; j++)
-      //@ts-ignore
-      row.push(cols[j].innerText);
+      for (var j = 0; j < cols.length; j++)
+        //@ts-ignore
+        row.push(cols[j].innerText);
 
-    csv.push(row.join(","));
+      csv.push(row.join(","));
+    }
+
+    // Download CSV
+    download_csv(csv.join("\n"), filename);
+
   }
-
-  // Download CSV
-  download_csv(csv.join("\n"), filename);
-
-}
-else{
-  alert("Nothing to Export")
-}
+  else {
+    alert("Nothing to Export")
+  }
 }
 
 // Search Logic
@@ -366,11 +371,11 @@ function search() {
   });
   clearUI()
   if (searches.length > 0) {
-  
+
     renderItem(searches);
   }
-  else{
-    const spanElem  =document.createElement('span');
+  else {
+    const spanElem = document.createElement('span');
     spanElem.innerText = 'Oops ! Nothing found'
     tableDiv.appendChild(spanElem);
   }

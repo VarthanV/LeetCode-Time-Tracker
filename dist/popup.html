@@ -1,83 +1,83 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <!-- CDNs -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <!-- CSS -->
-    <link rel="stylesheet" href="./styles/style.css" />
-    <meta charset="UTF-8" />
-    <title>LeetCode Time Tracker</title>
-    <style></style>
-    <script src="js/vendor.js"></script>
-  </head>
-  <body>
-    <p class="title">LeetCode Time Extension</p>
-    <!-- Options Page -->
-    <div class="pages-block" id="options-block"></div>
-    <div id="test-div" class="problem-description">
-      <span class="problem-name">Problem Name : </span>
-      <span class="problem-name-div" id="problem-title"></span>
-      <div>
-        <span class="problem-name">Difficulty: </span>
-        <span class="problem-name-div" id="difficulty-div"></span>
-      </div>
-    </div>
-    <div class="timer-wrapper">
-      <div id="timer-div">
-        <h1>
-          <span id="hour">00</span> : <span id="min">00</span> :
-          <span id="sec">00</span> :
-          <span id="milisec">00</span>
-        </h1>
-      </div>
-      <div id="button-div">
-        <button id="start">Start</button>
-        <button id="reset">Reset</button>
-        <button id="save">Save</button>
-      </div>
-    </div>
 
-    <div class="chart-wrapper">
-      <div class="button-wrapper">
-        <p>Your Statistics</p>
-        <div></div>
+<head>
+  <!-- CDNs -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone"
+    rel="stylesheet">
+  <!-- CSS -->
+  <link rel="stylesheet" href="./styles/style.css" />
+  <meta charset="UTF-8" />
+  <title>LeetCode Time Tracker</title>
+  <style></style>
+  <script src="js/vendor.js"></script>
+</head>
+
+<body>
+  <h1 class="title text-center">LeetCode Timer</h1>
+  <!-- Options Page -->
+  <div class="pages-block" id="options-block"></div>
+  <div class="current-problem"> <span class="current-problem__name" id="problem-title"></span>
+    <div>
+      <span class="current-problem__difficulty current-problem__difficulty-easy"
+        id="problem-difficulty">Difficulty</span>
       </div>
-      <div class="chart-div">
-        <canvas id="myChart" width="200" height="200"></canvas>
-      </div>
+  </div>
+  <div class="timer-wrapper text-center">
+    <div class="timer" id="timer-div">
+      <span id="hour">00</span>h
+      <span id="min">00</span>m
+      <span id="sec">00</span>
+      <span id="milisec">00</span>
     </div>
-
-    <div class="table-wrapper">
-      <div id="name-wrapper">
-        <p>Problems List</p>
-
-        <button class="btn" id="export-to-csv">Export to CSV</button>
-      </div>
-      <div id="search-div">
-      <input type="text" required id="search-text">
-      <button id="search-btn" class="btn"> Search </button>
-
+    <div class="actions" id="button-div">
+      <button class="btn btn-actions btn-start" id="start">
+        <span class="material-icons material-icons-outlined">arrow_forward_ios </span>
+        <span class="btn-txt">Start</span>
+      </button>
+      <button class="btn btn-actions btn-reset" id="reset">
+        <span class="material-icons material-icons-outlined">update </span>
+        <span class="btn-txt">Reset</span>
+      </button>
+      <button class="btn btn-actions btn-save" id="save">
+        <span class="material-icons material-icons-outlined">save </span>
+        <span class="btn-txt">Save</span>
+      </button>
     </div>
-      <table>
-        <select id="difficulty-selector" >
-          <option value="all">All </option>
-          <option value="easy"> Easy</option>
-          <option value="medium"> Medium </option>
-          <option value="hard"> Hard</option>
-        </select>
-
-        <tr id="table-heading">
-          <td>Name</td>
-          <td>Difficulty</td>
-          <td>TimeTaken</td>
-          <td>Date Solved</td>
-        </tr>
-        <tbody id="problem-table"></tbody>
-      </table>
+  </div>
+  <div class="chart-wrapper">
+    <div class="button-wrapper">
+      <h3 class="side-heading">Your Statistics</h3>
+      <div></div>
     </div>
-    <script src="js/popup.js"></script>
-  </body>
+    <div class="chart-div"><canvas id="myChart" width="200" height="200"></canvas></div>
+  </div>
+  <div class="table-wrapper">
+    <div class="section-title" id="name-wrapper">
+      <h3 class="side-heading">Problems List</h3><button class="btn" id="export-to-csv"><span
+          class="material-icons material-icons-outlined">unarchive </span><span class="btn-txt">Export as
+          CSV</span></button></button>
+    </div>
+    <div class="search" id="search-div"><input type="text" class="search__input" required id="search-text"><button
+        id="search-btn" class="btn btn-icon-only search__btn"><span
+          class="material-icons material-icons-outlined">search </span></button></div>
+    <table class="table"><select id="difficulty-selector">
+        <option value="all">All </option>
+        <option value="easy">Easy</option>
+        <option value="medium">Medium </option>
+        <option value="hard">Hard</option>
+      </select>
+      <tr class="table__heading" id="table-heading">
+        <td>Name</td>
+        <td>Difficulty</td>
+        <td>TimeTaken</td>
+        <td>Date Solved</td>
+      </tr>
+      <tbody class="table__body" id="problem-table"></tbody>
+    </table>
+  </div>
+  <script src="js/popup.js"></script>
+</body>
+
 </html>
