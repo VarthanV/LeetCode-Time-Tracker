@@ -160,8 +160,8 @@ function reset() {
   let document = chrome.extension.getViews({ type: "popup" })[0].document;
   /*Reset*/
   startstop = 0;
-  document.getElementById("start").innerHTML = "Start";
-
+  document.getElementById("start").innerHTML = `<span class="material-icons material-icons-outlined">arrow_forward_ios </span>
+        <span class="btn-txt">Start</span>`;
   milisec = 0;
   sec = 0;
   min = 0;

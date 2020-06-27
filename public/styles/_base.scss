@@ -25,6 +25,9 @@ label {
   font: $font-weight-default $font-size-default $font-family-default;
   padding: .6rem;
   margin: 1rem;
+  border: 1px solid $color-gray-6;
+  border-radius: $size-subtle-border;
+  outline: none;
 }
 
 button {
@@ -65,12 +68,12 @@ h6 {
 /* Track */
 ::-webkit-scrollbar-track {
   box-shadow: inset 0 0 6px rgba($color-black, .3);
-  border-radius: 2px;
+  border-radius: $size-subtle-border;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  border-radius: 2px;
+  border-radius: $size-subtle-border;
   background: darken($color-gray-3, 10%);
   // box-shadow: inset 0 0 6px rgba($color-black, .5);
 }
