@@ -1,9 +1,29 @@
+.timer-wrapper {
+  background-color: $color-gray-2;
+  padding: 2rem;
+  margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+
+  .actions {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@mixin hoverSetter($color) {
+  &:hover {
+    background-color: darken($color, 10%);
+    border: 1px solid darken($color, 50%);
+  }
+}
+
 .btn {
+  $used-color: $color-gray-6;
 
   &,
   &:link,
   &:active {
-    $used-color: $color-gray-6;
     display: inline-block;
     text-decoration: none;
     color: white;
@@ -12,12 +32,40 @@
     border-radius: 2px;
     padding: 1rem 2rem;
     outline: none;
+    transition: all .2s;
+    margin: 1rem;
 
     cursor: pointer;
+  }
 
-    &:hover {
-      background-color: darken($used-color, 20%);
-      border: 1px solid darken($used-color, 10%);
-    }
+  @include hoverSetter($used-color);
+
+  &-actions {
+    border-radius: 3px;
+    text-transform: uppercase;
+  }
+
+  &-start {
+    $used-color: $color-primary;
+    background-color: $used-color;
+    border: 1px solid darken($used-color, 10%);
+
+    @include hoverSetter($used-color);
+  }
+
+  &-reset {
+    $used-color: $color-tomato;
+    background-color: $used-color;
+    border: 1px solid darken($used-color, 10%);
+
+    @include hoverSetter($used-color);
+  }
+
+  &-save {
+    $used-color: $color-secondary;
+    background-color: $used-color;
+    border: 1px solid darken($used-color, 10%);
+
+    @include hoverSetter($used-color);
   }
 }
