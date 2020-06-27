@@ -39,11 +39,18 @@ Export your progress as CSV for further use
 ![shot2](/screenshots/shot2.png)
 
 
+
+
 # Features yet to come
 -  Dark mode
 -  Setting time limit yourselves
 -  Sort by Date (Completed)
 -  Supporting Platforms like HackerRank ,CodeChef
+
+
+# Updated UI Teaser
+
+![shot6](/screenshots/shot6.png)
 
 
 Incase you have worked on above features submit a Pull Request   [Pull Request](https://github.com/VarthanV/LeetCode-Time-Tracker/pulls)
