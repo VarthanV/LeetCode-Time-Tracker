@@ -80,21 +80,36 @@
 .btn {
   $used-color: $color-gray-6;
 
+  &>span {
+    display: inline-block;
+  }
+
+  .material-icons {
+    font-size: $font-size-default;
+    padding: 0;
+  }
+
   &,
   &:link,
   &:active {
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-decoration: none;
     color: white;
+    margin: 1rem;
     background-color: $used-color;
     border: 1px solid darken($used-color, 5%);
     border-radius: 2px;
     padding: 1rem 2rem;
     outline: none;
     transition: all .2s;
-    margin: 1rem;
 
     cursor: pointer;
+  }
+
+  &-txt {
+    padding: 0 1rem;
   }
 
   @include hoverSetter($used-color);
@@ -137,6 +152,23 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.search {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
+
+  &__input {
+    flex-grow: 1;
+    margin-left: 0;
+  }
+
+  &__btn {
+    margin: 1rem 0;
+    padding: 1rem;
+    font-size: 2rem;
+  }
 }
 
 .table {

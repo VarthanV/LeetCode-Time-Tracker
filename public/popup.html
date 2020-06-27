@@ -4,6 +4,9 @@
 <head>
   <!-- CDNs -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone"
+    rel="stylesheet">
+
   <!-- CSS -->
   <link rel="stylesheet" href="./styles/style.css" />
   <meta charset="UTF-8" />
@@ -31,9 +34,22 @@
       <span id="milisec">0</span>
     </div>
     <div class="actions" id="button-div">
-      <button class="btn btn-actions btn-start" id="start">Start</button>
-      <button class="btn btn-actions btn-reset" id="reset">Reset</button>
-      <button class="btn btn-actions btn-save" id="save">Save</button>
+      <button class="btn btn-actions btn-start" id="start">
+        <span class="material-icons material-icons-outlined">
+          arrow_forward_ios
+        </span>
+        <span class="btn-txt">Start</span>
+      </button>
+      <button class="btn btn-actions btn-reset" id="reset">
+        <span class="material-icons material-icons-outlined">
+          update
+        </span>
+        <span class="btn-txt">Reset</span></button>
+      <button class="btn btn-actions btn-save" id="save"><span class="material-icons material-icons-outlined">
+          save
+        </span>
+        <span class="btn-txt">Save</span>
+      </button>
     </div>
   </div>
 
@@ -51,12 +67,18 @@
     <div class="section-title" id="name-wrapper">
       <h3 class="side-heading">Problems List</h3>
 
-      <button class="btn" id="export-to-csv">Export to CSV</button>
+      <button class="btn" id="export-to-csv"><span class="material-icons material-icons-outlined">
+          unarchive
+        </span>
+        <span class="btn-txt">Export as CSV</span></button></button>
     </div>
-    <div id="search-div">
-      <input type="text" required id="search-text">
-      <button id="search-btn" class="btn"> Search </button>
-
+    <div class="search" id="search-div">
+      <input type="text" class="search__input" required id="search-text">
+      <button id="search-btn" class="btn btn-icon-only search__btn">
+        <span class="material-icons material-icons-outlined">
+          search
+        </span>
+      </button>
     </div>
     <table class="table">
       <select id="difficulty-selector">
