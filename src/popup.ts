@@ -12,7 +12,7 @@ const problemTitleDiv = document.querySelector(
   "#problem-title"
 ) as HTMLSpanElement;
 const difficultyDiv = document.querySelector(
-  "#difficulty-div"
+  "#problem-difficulty"
 ) as HTMLSpanElement;
 const tableDiv = document.querySelector("#problem-table");
 const difficultySelectorDiv = document.querySelector(
@@ -193,7 +193,7 @@ function clearUI() {
 }
 
 /*
-Renders Chart 
+Renders Chart
 
 */
 //@ts-ignore
@@ -239,7 +239,7 @@ function renderChart() {
 }
 
 /*
-Renders Table 
+Renders Table
 */
 function renderTable() {
   const items = localStorage.getItem("leetCodeExtensionDetails");
@@ -290,7 +290,7 @@ function renderItem(items, classname?) {
 }
 
 /*
-CSV Helpers 
+CSV Helpers
 Credits : https://jsfiddle.net/gengns/j1jm2tjx/
 
 */
@@ -366,7 +366,7 @@ function search() {
   });
   clearUI()
   if (searches.length > 0) {
-  
+
     renderItem(searches);
   }
   else{

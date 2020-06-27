@@ -22,7 +22,7 @@ chrome.tabs.onActivated.addListener(function (activeInfo) {
   const activeTabId = activeInfo.tabId;
   chrome.tabs.get(activeTabId, function (tab) {
     currentUrl = tab.url;
-    
+
   });
 });
 
@@ -45,13 +45,13 @@ chrome.runtime.onMessage.addListener(function (
     } else if (request.action == "getTimer") {
       sendResponse({ startstop: startstop });
     }
-    else if(request.action === 'getCurrentTime'){
+    else if (request.action === 'getCurrentTime') {
 
       sendResponse({
-        miliSecOut:miliSecOut,
-        hourOut:hourOut,
-        secOut:secOut,
-        minOut:minOut
+        miliSecOut: miliSecOut,
+        hourOut: hourOut,
+        secOut: secOut,
+        minOut: minOut
       })
     }
   }
@@ -89,7 +89,6 @@ function startTimer() {
 
 // Stops the timer
 function stopTimer() {
- 
   clearInterval(x);
 }
 
@@ -135,7 +134,6 @@ function timer() {
     document.getElementById("sec").innerHTML = secOut.toString();
     document.getElementById("min").innerHTML = minOut.toString();
     document.getElementById("hour").innerHTML = hourOut.toString();
-    
   }
 
   // Update the badge Text
@@ -168,8 +166,8 @@ function reset() {
   hour = 0;
   miliSecOut = 0;
   hourOut = 0;
-  minOut =0;
-  secOut =0;
+  minOut = 0;
+  secOut = 0;
   document.getElementById("milisec").innerHTML = "00";
   document.getElementById("sec").innerHTML = "00";
   document.getElementById("min").innerHTML = "00";
