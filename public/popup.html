@@ -53,14 +53,19 @@
   </div>
   <div class="table-wrapper">
     <div class="section-title" id="name-wrapper">
-      <h3 class="side-heading">Problems List</h3><button class="btn" id="export-to-csv"><span
-          class="material-icons material-icons-outlined">unarchive </span><span class="btn-txt">Export as
-          CSV</span></button></button>
+      <h3 class="side-heading">Problems List</h3>
+      <button class="btn" id="export-to-csv">
+        <span class="material-icons material-icons-outlined">unarchive </span>
+        <span class="btn-txt">Export as CSV </span>
+      </button>
     </div>
-    <div class="search" id="search-div"><input type="text" class="search__input" required id="search-text"><button
-        id="search-btn" class="btn btn-icon-only search__btn"><span
-          class="material-icons material-icons-outlined">search </span></button></div>
-    <table class="table"><select id="difficulty-selector">
+    <div class="search" id="search-div"><input type="text" class="search__input" required id="search-text">
+      <button id="search-btn" class="btn btn-icon-only search__btn">
+        <span class="material-icons material-icons-outlined">search</span>
+      </button>
+    </div>
+    <table class="table">
+      <select id="difficulty-selector">
         <option value="all">All </option>
         <option value="easy">Easy</option>
         <option value="medium">Medium </option>
@@ -69,7 +74,7 @@
       <tr class="table__heading" id="table-heading">
         <td>Name</td>
         <td>Difficulty</td>
-        <td>TimeTaken</td>
+        <td>Time Taken</td>
         <td>Date Solved</td>
       </tr>
       <tbody class="table__body" id="problem-table"></tbody>
