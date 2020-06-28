@@ -1,0 +1,14 @@
+@mixin hoverSetter($color) {
+  &:hover {
+    background-color: darken($color, 10%);
+    border: 1px solid darken($color, 20%);
+  }
+}
+
+@mixin buttonStyle($color) {
+  $used-color: $color;
+  background-color: $used-color;
+  border: 1px solid darken($used-color, 10%);
+
+  @include hoverSetter($used-color);
+}

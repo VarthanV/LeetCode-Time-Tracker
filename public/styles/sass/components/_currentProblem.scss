@@ -1,0 +1,31 @@
+.current-problem {
+  padding: 1rem;
+
+  &__name {
+    font-size: 3rem;
+    display: block;
+  }
+
+  &__difficulty {
+    display: inline-block;
+    border-radius: 1rem;
+    color: $color-white;
+    font-size: 1rem;
+    padding: .3rem .8rem .3rem 1.1rem; // 1.1rem => fix for letter spacing
+    text-transform: uppercase;
+    letter-spacing: .3rem;
+  }
+
+  // PILLS
+  .easy {
+    background-color: $color-emerald;
+  }
+
+  .medium {
+    background-color: $color-amber;
+  }
+
+  .hard {
+    background-color: $color-ruby;
+  }
+}
