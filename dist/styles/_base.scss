@@ -40,6 +40,11 @@ body {
   a {
     color: $color-text;
   }
+
+  ::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+  }
+
 }
 
 @media (prefers-color-scheme: light) {
