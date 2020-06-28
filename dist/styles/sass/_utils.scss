@@ -13,3 +13,14 @@
   font-weight: 400;
   margin: 1rem;
 }
+
+.section-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fill-up {
+  display: flex;
+  justify-content: stretch;
+}
