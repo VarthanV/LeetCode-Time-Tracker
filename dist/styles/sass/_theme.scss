@@ -1,0 +1,50 @@
+/* DARK Theme */
+@media (prefers-color-scheme: dark) {
+  $color-background: $color-gray-9;
+  $color-text: $color-gray-1;
+
+  body,
+  .select,
+  input {
+    background-color: $color-background;
+    color: $color-text;
+  }
+
+  tbody,
+  th,
+  td {
+    border: 1px solid $color-text;
+  }
+
+  a {
+    color: $color-text;
+  }
+
+  ::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+  }
+
+}
+
+/* LIGHT THEME */
+@media (prefers-color-scheme: light) {
+  $color-background: $color-white;
+  $color-text: $color-gray-9;
+
+  body,
+  .select,
+  input {
+    background-color: $color-background;
+    color: $color-text;
+  }
+
+  tbody,
+  th,
+  td {
+    border: 1px solid $color-text;
+  }
+
+  a {
+    color: $color-text;
+  }
+}
