@@ -11,6 +11,7 @@
 
   &__name {
     font-size: 3rem;
+    display: block;
   }
 
   &__difficulty {
@@ -22,20 +23,21 @@
     text-transform: uppercase;
     letter-spacing: .3rem;
   }
+
+  // PILLS
+  .easy {
+    background-color: $color-emerald;
+  }
+
+  .medium {
+    background-color: $color-amber;
+  }
+
+  .hard {
+    background-color: $color-ruby;
+  }
 }
 
-// PILLS
-.easy {
-  background-color: $color-emerald;
-}
-
-.medium {
-  background-color: $color-amber;
-}
-
-.hard {
-  background-color: $color-ruby;
-}
 
 .timer-wrapper {
   background-color: rgba($color-gray-2, 0.5);
@@ -203,6 +205,22 @@ tr {
   &__heading {
     text-transform: uppercase;
     background-color: rgba($color-primary, .9);
+  }
+
+  &__body {
+
+    // Colorize in table
+    .easy {
+      color: $color-emerald;
+    }
+
+    .medium {
+      color: $color-amber;
+    }
+
+    .hard {
+      color: $color-ruby;
+    }
   }
 
   a {
