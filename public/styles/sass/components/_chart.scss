@@ -34,17 +34,17 @@
 .chart-wrapper {
   overflow: hidden;
   opacity: 0;
-  height: 0;
-  transition: all .3s;
+  max-height: 0;
+  transition: all .5s;
 }
 
 .check-chart:not(:checked)~.chart-wrapper {
   opacity: 0;
-  height: 0;
+  max-height: 0;
 }
 
 
 .check-chart:checked~.chart-wrapper {
   opacity: 1;
-  height: 23rem;
+  max-height: 35rem;
 }
