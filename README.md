@@ -3,12 +3,14 @@
 [![Build Status](https://travis-ci.com/VarthanV/LeetCode-Time-Tracker.svg?token=sPWc2kHqb9ZisQqfsF7y&branch=master)](https://travis-ci.com/VarthanV/LeetCode-Time-Tracker)
 
 ## Description
+
 LeetCode TimeTracker Extension helps you to track the time that you take to solve a problem and helps you to make progress
 
-# Installation
-Install the extension from the Chrome WebStore https://chrome.google.com/webstore/detail/leetcode-time-tracker/obcihoolahbncgakepoceagnjnfgghhl?hl=en&authuser=0
-# Users installing from Github
+## Installation
 
+Install the extension from the Chrome WebStore <https://chrome.google.com/webstore/detail/leetcode-time-tracker/obcihoolahbncgakepoceagnjnfgghhl?hl=en&authuser=0>
+
+## Users installing from Github
 
 - Clone the Repo
 - Select **Load Unpacked** Extension from the Extensions Page(Make sure Developers Options is enabled).
@@ -16,11 +18,11 @@ Install the extension from the Chrome WebStore https://chrome.google.com/webstor
 
 You are good to go !
 
-# Screenshots
+## Screenshots
+
  A timer badge that helps you to  keep an eye on time while solving problem.
 
 ![shot1](/screenshots/shot1.png)
-
 
 See your statistics and list of problems you solved.
 
@@ -38,20 +40,16 @@ Export your progress as CSV for further use
 
 ![shot2](/screenshots/shot2.png)
 
+## Features yet to come
 
+- Dark mode
+- Setting time limit yourselves
+- Sort by Date (Completed)
+- Supporting Platforms like HackerRank ,CodeChef
 
-
-# Features yet to come
--  Dark mode
--  Setting time limit yourselves
--  Sort by Date (Completed)
--  Supporting Platforms like HackerRank ,CodeChef
-
-
-# Updated UI Teaser 
+## Updated UI Teaser
 
 ![shot6](/screenshots/shot6.png)
-
 
 The project is still in Developement but the Chrome Store extension has a stable build . For detailed changes see [CHANELOG.md](https://github.com/VarthanV/LeetCode-Time-Tracker/blob/master/CHANGELOG.md)
 

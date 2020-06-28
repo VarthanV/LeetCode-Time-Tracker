@@ -11,6 +11,7 @@
 
   &__name {
     font-size: 3rem;
+    display: block;
   }
 
   &__difficulty {
@@ -18,26 +19,28 @@
     border-radius: 1rem;
     color: $color-white;
     font-size: 1rem;
-    padding: .3rem .8rem;
+    padding: .3rem .8rem .3rem 1.1rem; // 1.1rem => fix for letter spacing
     text-transform: uppercase;
     letter-spacing: .3rem;
+  }
 
-    &-easy {
-      background-color: $color-emerald;
-    }
+  // PILLS
+  .easy {
+    background-color: $color-emerald;
+  }
 
-    &-medium {
-      background-color: $color-amber;
-    }
+  .medium {
+    background-color: $color-amber;
+  }
 
-    &-hard {
-      background-color: $color-ruby;
-    }
+  .hard {
+    background-color: $color-ruby;
   }
 }
 
+
 .timer-wrapper {
-  background-color: $color-gray-2;
+  background-color: $color-pop-gray-1;
   padding: 2rem;
   margin: 1rem 0;
   display: flex;
@@ -128,7 +131,7 @@
   }
 
   &-reset {
-    $used-color: $color-ruby;
+    $used-color: $color-tomato;
     background-color: $used-color;
     border: 1px solid darken($used-color, 10%);
 
@@ -154,6 +157,11 @@
   align-items: center;
 }
 
+.filters {
+  display: flex;
+  justify-content: stretch;
+}
+
 .search {
   display: flex;
   justify-content: space-between;
@@ -171,11 +179,132 @@
   }
 }
 
+table {
+  border-collapse: collapse;
+}
+
+tbody,
+th,
+td {
+  padding: 1rem;
+  margin: 1rem auto;
+  text-align: center;
+}
+
+tr {
+  &:nth-child(even) {
+    background-color: rgba($color-gray-5, 0.5);
+  }
+}
+
 .table {
+  display: block;
   padding: 1rem;
   width: 100%;
 
   &__heading {
     text-transform: uppercase;
+    background-color: rgba($color-primary, .9);
   }
+
+  &__body {
+
+    // Colorize in table
+    .easy {
+      color: $color-emerald;
+    }
+
+    .medium {
+      color: $color-amber;
+    }
+
+    .hard {
+      color: $color-ruby;
+    }
+  }
+
+  a {
+
+    &:link,
+    &:visited {
+      text-decoration: none;
+      transition: all .2s;
+    }
+
+    &:hover {
+
+      &::before {
+        content: "🔗";
+        font-size: $font-size-default;
+      }
+
+      color: $color-primary;
+    }
+  }
+}
+
+/* CheckBox hacks */
+.check {
+  display: none;
+  cursor: pointer;
+
+  &__label {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    &__title {
+      flex-grow: 1;
+    }
+
+    .label-text {
+      display: inline-block;
+      margin: 0;
+      cursor: pointer;
+    }
+
+  }
+
+  &__icon {
+    font-size: $font-size-default;
+    transition: all .3s;
+    cursor: pointer;
+  }
+
+  &:checked+&__label &__icon {
+    transform: rotate(90deg);
+  }
+}
+
+.chart-wrapper {
+  max-height: 0;
+  overflow: hidden;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: all .3s;
+  opacity: 0;
+}
+
+.check-chart:checked~.chart-wrapper {
+  display: block;
+  max-height: 100%;
+  opacity: 1;
+  transform: scaleY(1);
+}
+
+.table-wrapper {
+  max-height: 0;
+  overflow: hidden;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: all .3s;
+  opacity: 0;
+}
+
+.check-table:checked~.table-wrapper {
+  display: block;
+  max-height: 100%;
+  opacity: 1;
+  transform: scaleY(1);
 }
