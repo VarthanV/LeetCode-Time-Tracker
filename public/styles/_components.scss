@@ -154,6 +154,11 @@
   align-items: center;
 }
 
+.filters {
+  display: flex;
+  justify-content: stretch;
+}
+
 .search {
   display: flex;
   justify-content: space-between;
@@ -191,5 +196,26 @@ td {
 
   &__heading {
     text-transform: uppercase;
+    background-color: rgba($color-primary, .9);
+  }
+
+  a {
+
+    &:link,
+    &:visited {
+      color: $color-black;
+      text-decoration: none;
+      transition: all .2s;
+    }
+
+    &:hover {
+
+      &::before {
+        content: "🔗";
+        font-size: $font-size-default;
+      }
+
+      color: $color-primary;
+    }
   }
 }

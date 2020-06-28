@@ -60,6 +60,25 @@ h6 {
   font-weight: 500;
 }
 
+/* Date Picker */
+
+::-webkit-datetime-edit-text {
+  text-transform: uppercase;
+  padding: 0 0.3em;
+}
+
+::-webkit-datetime-edit-day-field {
+  text-transform: uppercase;
+}
+
+::-webkit-datetime-edit-year-field {
+  text-transform: uppercase;
+}
+
+::-webkit-inner-spin-button {
+  display: none;
+}
+
 /* Custom scroll bar */
 ::-webkit-scrollbar {
   width: 1rem;
