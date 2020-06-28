@@ -19,7 +19,7 @@
     border-radius: 1rem;
     color: $color-white;
     font-size: 1rem;
-    padding: .3rem .8rem;
+    padding: .3rem .8rem .3rem 1.1rem; // 1.1rem => fix for letter spacing
     text-transform: uppercase;
     letter-spacing: .3rem;
   }
