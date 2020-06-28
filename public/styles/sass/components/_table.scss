@@ -12,6 +12,7 @@ td {
   padding: 1rem;
   margin: 1rem auto;
   text-align: center;
+  width: 100%;
 }
 
 tr {
@@ -85,4 +86,14 @@ tr {
 .check-table:checked~.table-wrapper {
   opacity: 1;
   max-height: 250rem;
+}
+
+.no-items {
+  position: absolute;
+  bottom: auto;
+  left: 0;
+  width: 100%;
+  margin: auto;
+  height: 5rem;
+  padding: 1rem;
 }
