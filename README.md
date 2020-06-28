@@ -53,6 +53,8 @@ Export your progress as CSV for further use
 ![shot6](/screenshots/shot6.png)
 
 
+The project is still in Developement but the Chrome Store extension has a stable build . For detailed changes see [CHANELOG.md]()
+
 Incase you have worked on above features submit a Pull Request   [Pull Request](https://github.com/VarthanV/LeetCode-Time-Tracker/pulls)
 
 If any issues ,Please submit one [New Issuse](https://github.com/VarthanV/LeetCode-Time-Tracker/issues)
