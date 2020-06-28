@@ -218,3 +218,71 @@ td {
     }
   }
 }
+
+/* CheckBox hacks */
+.check {
+  display: none;
+  cursor: pointer;
+
+  &__label {
+    margin: 0;
+    cursor: pointer;
+
+    .label-text {
+      display: inline-block;
+      margin: 0;
+      cursor: pointer;
+    }
+
+  }
+
+  &__icon {
+    font-size: $font-size-default;
+    transition: all .3s;
+    cursor: pointer;
+  }
+
+  &:checked+&__label>&__icon {
+    transform: rotate(90deg);
+  }
+}
+
+.chart-wrapper {
+  // transform: translate(0, -10rem);
+  display: none;
+  // margin-top: -10rem;
+  // transition: all .3s;
+  opacity: 0;
+}
+
+.check-chart:checked~.chart-wrapper {
+  // animation: float-in-top .3s ease-in;
+  // transform: translate(0, 0);
+  display: block;
+  opacity: 1;
+  // margin-top: 0;
+}
+
+@keyframes float-in-top {
+  0% {
+    transform: translate(0, -10rem);
+    margin-top: -10rem;
+    opacity: 0;
+  }
+
+  50% {
+    transform: translate(0, -5);
+    opacity: 0;
+    height: 50%;
+    margin-top: -5rem;
+    width: auto;
+  }
+
+  100% {
+    transform: translate(0, 0);
+    opacity: 1;
+    height: auto;
+    margin-top: 0;
+    width: auto;
+  }
+}
