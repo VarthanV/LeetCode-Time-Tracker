@@ -1,0 +1,55 @@
+.btn {
+  $used-color: $color-gray-6;
+
+  &>span {
+    display: inline-block;
+  }
+
+  .material-icons {
+    font-size: $font-size-default;
+    padding: 0;
+  }
+
+  &,
+  &:link,
+  &:active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: $color-white;
+    margin: 1rem;
+    border-radius: $size-subtle-border;
+    padding: 1rem 2rem;
+    outline: none;
+    cursor: pointer;
+    transition: all .2s;
+
+    @include buttonStyle($color-gray-6)
+  }
+
+  &__text {
+    padding: 0 1rem;
+  }
+
+  &-actions {
+    border-radius: 3px;
+    text-transform: uppercase;
+  }
+
+  &-start {
+    @include buttonStyle($color-primary);
+  }
+
+  &-reset {
+    @include buttonStyle($color-tomato);
+  }
+
+  &-save {
+    @include buttonStyle($color-secondary);
+  }
+
+  &-export {
+    @include buttonStyle($color-amber);
+  }
+}

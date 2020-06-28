@@ -1,0 +1,117 @@
+*,
+*::after,
+*::before {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: inherit;
+  outline: none;
+}
+
+html {
+  font-size: 62.5%; // => 1 rem = 10px
+  scroll-behavior: smooth;
+  min-width: 400px;
+  max-width: 520px;
+}
+
+body {
+  box-sizing: border-box;
+}
+
+input,
+textarea,
+select,
+label {
+  font: $font-weight-default $font-size-default $font-family-default;
+  background-color: transparent;
+  color: inherit;
+  padding: .6rem;
+  margin: 1rem;
+  border: 1px solid $color-gray-6;
+  border-radius: $size-subtle-border;
+  outline: none;
+}
+
+label {
+  border: none;
+}
+
+/* Typography */
+
+body {
+  font: $font-weight-default $font-size-default $font-family-default;
+}
+
+button {
+  font-family: $font-family-default;
+}
+
+h1 {
+  font-weight: 200;
+  font-size: 4rem;
+}
+
+h2 {
+  font-weight: 500;
+  font-size: 3.5rem;
+}
+
+h3,
+h4 {
+  font-weight: 700;
+}
+
+h5,
+h6 {
+  font-weight: 500;
+}
+
+.title {
+  font-size: 1.6rem;
+  font-weight: 500;
+  background-image: linear-gradient(to bottom right, $color-primary, $color-secondary);
+  padding: 1rem;
+  color: $color-white;
+}
+
+
+/* Date Picker */
+
+::-webkit-datetime-edit-text {
+  text-transform: uppercase;
+  padding: 0 0.3em;
+}
+
+::-webkit-datetime-edit-day-field {
+  text-transform: uppercase;
+}
+
+::-webkit-datetime-edit-year-field {
+  text-transform: uppercase;
+}
+
+::-webkit-inner-spin-button {
+  display: none;
+}
+
+/* Custom scroll bar */
+::-webkit-scrollbar {
+  width: 1rem;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba($color-black, .3);
+  border-radius: $size-subtle-border;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  border-radius: $size-subtle-border;
+  background: darken($color-gray-3, 10%);
+  // box-shadow: inset 0 0 6px rgba($color-black, .5);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: darken($color-gray-3, 20%);
+}

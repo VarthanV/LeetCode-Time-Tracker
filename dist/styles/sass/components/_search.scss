@@ -1,0 +1,16 @@
+.search {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
+
+  &__input {
+    flex-grow: 1;
+    margin-left: 0;
+  }
+
+  &__btn {
+    margin: 1rem 0;
+    padding: 1rem;
+    font-size: 2rem;
+  }
+}

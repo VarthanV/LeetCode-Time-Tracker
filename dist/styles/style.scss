@@ -1,4 +1,14 @@
-@import './variables';
-@import './base';
-@import './components';
-@import './utils';
+@import 'sass/variables';
+@import 'sass/mixins';
+
+@import 'sass/base';
+@import 'sass/theme';
+
+@import 'sass/components/buttons';
+@import 'sass/components/chart';
+@import 'sass/components/currentProblem';
+@import 'sass/components/search';
+@import 'sass/components/table';
+@import 'sass/components/timer';
+
+@import 'sass/utils';

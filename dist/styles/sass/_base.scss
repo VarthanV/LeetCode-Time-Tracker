@@ -18,57 +18,6 @@ body {
   box-sizing: border-box;
 }
 
-
-/* DARK Theme */
-@media (prefers-color-scheme: dark) {
-  $color-background: $color-gray-9;
-  $color-text: $color-gray-1;
-
-  body,
-  .select,
-  input {
-    background-color: $color-background;
-    color: $color-text;
-  }
-
-  tbody,
-  th,
-  td {
-    border: 1px solid $color-text;
-  }
-
-  a {
-    color: $color-text;
-  }
-
-  ::-webkit-calendar-picker-indicator {
-    filter: invert(1);
-  }
-
-}
-
-@media (prefers-color-scheme: light) {
-  $color-background: $color-white;
-  $color-text: $color-gray-9;
-
-  body,
-  .select,
-  input {
-    background-color: $color-background;
-    color: $color-text;
-  }
-
-  tbody,
-  th,
-  td {
-    border: 1px solid $color-text;
-  }
-
-  a {
-    color: $color-text;
-  }
-}
-
 input,
 textarea,
 select,
@@ -87,14 +36,14 @@ label {
   border: none;
 }
 
-button {
-  font-family: $font-family-default;
-}
-
 /* Typography */
 
 body {
   font: $font-weight-default $font-size-default $font-family-default;
+}
+
+button {
+  font-family: $font-family-default;
 }
 
 h1 {
@@ -116,6 +65,15 @@ h5,
 h6 {
   font-weight: 500;
 }
+
+.title {
+  font-size: 1.6rem;
+  font-weight: 500;
+  background-image: linear-gradient(to bottom right, $color-primary, $color-secondary);
+  padding: 1rem;
+  color: $color-white;
+}
+
 
 /* Date Picker */
 
