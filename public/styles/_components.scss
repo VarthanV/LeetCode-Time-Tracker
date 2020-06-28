@@ -189,6 +189,12 @@ td {
   text-align: center;
 }
 
+tr {
+  &:nth-child(even) {
+    background-color: rgba($color-gray-5, 0.5);
+  }
+}
+
 .table {
   display: block;
   padding: 1rem;
@@ -226,7 +232,13 @@ td {
 
   &__label {
     margin: 0;
+    display: flex;
+    align-items: center;
     cursor: pointer;
+
+    &__title {
+      flex-grow: 1;
+    }
 
     .label-text {
       display: inline-block;
@@ -242,47 +254,39 @@ td {
     cursor: pointer;
   }
 
-  &:checked+&__label>&__icon {
+  &:checked+&__label &__icon {
     transform: rotate(90deg);
   }
 }
 
 .chart-wrapper {
-  // transform: translate(0, -10rem);
-  display: none;
-  // margin-top: -10rem;
-  // transition: all .3s;
+  max-height: 0;
+  overflow: hidden;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: all .3s;
   opacity: 0;
 }
 
 .check-chart:checked~.chart-wrapper {
-  // animation: float-in-top .3s ease-in;
-  // transform: translate(0, 0);
   display: block;
+  max-height: 100%;
   opacity: 1;
-  // margin-top: 0;
+  transform: scaleY(1);
 }
 
-@keyframes float-in-top {
-  0% {
-    transform: translate(0, -10rem);
-    margin-top: -10rem;
-    opacity: 0;
-  }
+.table-wrapper {
+  max-height: 0;
+  overflow: hidden;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: all .3s;
+  opacity: 0;
+}
 
-  50% {
-    transform: translate(0, -5);
-    opacity: 0;
-    height: 50%;
-    margin-top: -5rem;
-    width: auto;
-  }
-
-  100% {
-    transform: translate(0, 0);
-    opacity: 1;
-    height: auto;
-    margin-top: 0;
-    width: auto;
-  }
+.check-table:checked~.table-wrapper {
+  display: block;
+  max-height: 100%;
+  opacity: 1;
+  transform: scaleY(1);
 }

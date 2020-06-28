@@ -48,20 +48,26 @@
   </div>
   <input type="checkbox" name="chart-check" id="chart-check" class="check check-chart">
   <label for="chart-check" class="check__label">
-    <span class="material-icons material-icons-outlined check__icon">arrow_forward_ios </span>
-    <h3 class="side-heading label-text">Your Statistics</h3>
+    <div class="check__label__title">
+      <span class="material-icons material-icons-outlined check__icon">arrow_forward_ios </span>
+      <h3 class="side-heading label-text">Your Statistics</h3>
+    </div>
   </label>
   <div class="chart-wrapper">
-    <div class="chart-div"><canvas id="myChart" width="200" height="200"></canvas></div>
+    <div class="chart-div"><canvas id="myChart"></canvas></div>
   </div>
-  <div class="table-wrapper">
-    <div class="section-title" id="name-wrapper">
-      <h3 class="side-heading">Problems List</h3>
-      <button class="btn" id="export-to-csv">
-        <span class="material-icons material-icons-outlined">unarchive </span>
-        <span class="btn-txt">Export as CSV</span>
-      </button>
+  <input type="checkbox" name="table-check" id="table-check" class="check check-table">
+  <label for="table-check" class="check__label">
+    <div class="check__label__title">
+      <span class="material-icons material-icons-outlined check__icon">arrow_forward_ios </span>
+      <h3 class="side-heading label-text">Problems List</h3>
     </div>
+    <button class="btn" id="export-to-csv">
+      <span class="material-icons material-icons-outlined">unarchive </span>
+      <span class="btn-txt">Export as CSV</span>
+    </button>
+  </label>
+  <div class="table-wrapper">
     <div class="search" id="search-div"><input type="text" class="search__input" required id="search-text">
       <button id="search-btn" class="btn btn-icon-only search__btn">
         <span class="material-icons material-icons-outlined">search</span>
