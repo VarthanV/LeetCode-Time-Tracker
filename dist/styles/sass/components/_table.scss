@@ -58,9 +58,11 @@ tr {
 
     &:hover {
 
-      &::before {
-        content: ""; // removed :(
-        font-size: $font-size-default;
+      &::after {
+        padding-left: .5rem;
+        font-family: 'Material Icons';
+        content: "open_in_new";
+        font-size: 1.6rem;
       }
 
       color: $color-primary;
