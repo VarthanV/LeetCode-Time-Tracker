@@ -1,5 +1,9 @@
 # LeetCode Time Tracker Extension
 
+![icon](/dist/icon.png)
+
+
+
 [![Build Status](https://travis-ci.com/VarthanV/LeetCode-Time-Tracker.svg?token=sPWc2kHqb9ZisQqfsF7y&branch=master)](https://travis-ci.com/VarthanV/LeetCode-Time-Tracker)
 
 ## Description
@@ -60,3 +64,6 @@ The project is still in Developement but the Chrome Store extension has a stable
 Incase you have worked on above features submit a Pull Request   [Pull Request](https://github.com/VarthanV/LeetCode-Time-Tracker/pulls)
 
 If any issues ,Please submit one [New Issuse](https://github.com/VarthanV/LeetCode-Time-Tracker/issues)
+
+
+Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
