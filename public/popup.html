@@ -22,6 +22,7 @@
     <span class="current-problem__name" id="problem-title"></span>
     <span class="current-problem__difficulty" id="problem-difficulty"></span>
   </div>
+   <!-- Timer Div -->
   <div class="timer-wrapper text-center">
     <div class="timer" id="timer-div">
       <span id="hour">00</span>h
@@ -44,7 +45,8 @@
       </button>
     </div>
   </div>
-  <input type="checkbox" name="chart-check" id="chart-check" class="check check-chart">
+  <!-- Chart Div -->
+  <input type="checkbox" name="chart-check" id="chart-check" class="check check-chart" checked>
   <label for="chart-check" class="check__label">
     <div class="check__label__title">
       <span class="material-icons material-icons-outlined check__icon">arrow_forward_ios</span>
@@ -54,7 +56,8 @@
   <div class="chart-wrapper">
     <div class="chart-div"><canvas id="myChart"></canvas></div>
   </div>
-  <input type="checkbox" name="table-check" id="table-check" class="check check-table">
+  <!-- Table Div -->
+  <input type="checkbox" name="table-check" id="table-check" class="check check-table" checked>
   <label for="table-check" class="check__label">
     <div class="check__label__title">
       <span class="material-icons material-icons-outlined check__icon">arrow_forward_ios </span>
@@ -95,6 +98,7 @@
       <tbody class="table__body" id="problem-table"></tbody>
     </table>
   </div>
+  <!-- End Table -->
   <script src="js/popup.js"></script>
 </body>
 
