@@ -31,6 +31,11 @@ label {
   border: 1px solid $color-gray-6;
   border-radius: $size-subtle-border;
   outline: none;
+  transition: border-color .2s;
+
+  &:hover {
+    border-color: $color-primary;
+  }
 }
 
 label {

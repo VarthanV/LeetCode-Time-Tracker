@@ -74,7 +74,7 @@ tr {
   overflow: auto;
   opacity: 0;
   max-height: 0;
-  transition: all .6s;
+  transition: all .4s;
 }
 
 .check-table:not(:checked)~.table-wrapper {
