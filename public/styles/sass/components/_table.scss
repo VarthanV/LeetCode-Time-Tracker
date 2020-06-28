@@ -24,6 +24,7 @@ tr {
   display: block;
   padding: 1rem;
   width: 100%;
+  margin: auto;
 
   &__heading {
     text-transform: uppercase;
@@ -58,7 +59,7 @@ tr {
     &:hover {
 
       &::before {
-        content: "ðŸ”—";
+        content: ""; // removed :(
         font-size: $font-size-default;
       }
 
