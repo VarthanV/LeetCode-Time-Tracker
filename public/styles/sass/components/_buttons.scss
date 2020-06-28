@@ -28,6 +28,16 @@
     @include buttonStyle($color-gray-6)
   }
 
+  &-icon-only {
+
+    &,
+    &:link,
+    &:active {
+      margin: 1rem 0;
+      padding: 1rem;
+    }
+  }
+
   &__text {
     padding: 0 1rem;
   }

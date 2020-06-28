@@ -33,7 +33,9 @@ label {
   outline: none;
   transition: border-color .2s;
 
-  &:hover {
+  &:hover,
+  &:active,
+  &:focus {
     border-color: $color-primary;
   }
 }
