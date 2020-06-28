@@ -6,8 +6,9 @@
   }
 
   .material-icons {
-    font-size: $font-size-default;
+    font-size: 1.7rem;
     padding: 0;
+    margin-top: -2px;
   }
 
   &,
@@ -24,8 +25,16 @@
     outline: none;
     cursor: pointer;
     transition: all .2s;
+  }
 
-    @include buttonStyle($color-gray-6)
+  &-icon-only {
+
+    &,
+    &:link,
+    &:active {
+      margin: 1rem 0;
+      padding: 1rem;
+    }
   }
 
   &__text {

@@ -1,5 +1,5 @@
 .table-wrapper {
-  padding: 1rem 0;
+  padding: 0;
 }
 
 table {
@@ -12,6 +12,7 @@ td {
   padding: 1rem;
   margin: 1rem auto;
   text-align: center;
+  width: 100%;
 }
 
 tr {
@@ -24,6 +25,7 @@ tr {
   display: block;
   padding: 1rem;
   width: 100%;
+  margin: auto;
 
   &__heading {
     text-transform: uppercase;
@@ -57,9 +59,11 @@ tr {
 
     &:hover {
 
-      &::before {
-        content: "ðŸ”—";
-        font-size: $font-size-default;
+      &::after {
+        padding-left: .5rem;
+        font-family: 'Material Icons';
+        content: "open_in_new";
+        font-size: 1.6rem;
       }
 
       color: $color-primary;
@@ -68,17 +72,28 @@ tr {
 }
 
 .table-wrapper {
-  max-height: 0;
-  overflow: hidden;
-  transform: scaleY(0);
-  transform-origin: top;
-  transition: all .3s;
+  overflow: auto;
   opacity: 0;
+  max-height: 0;
+  transition: all .4s;
+}
+
+.check-table:not(:checked)~.table-wrapper {
+  opacity: 0;
+  max-height: 0;
 }
 
 .check-table:checked~.table-wrapper {
-  display: block;
-  max-height: 100%;
   opacity: 1;
-  transform: scaleY(1);
+  max-height: 250rem;
+}
+
+.no-items {
+  position: absolute;
+  bottom: auto;
+  left: 0;
+  width: 100%;
+  margin: auto;
+  height: 5rem;
+  padding: 1rem;
 }

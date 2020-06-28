@@ -47,7 +47,7 @@
   <input type="checkbox" name="chart-check" id="chart-check" class="check check-chart">
   <label for="chart-check" class="check__label">
     <div class="check__label__title">
-      <span class="material-icons material-icons-outlined check__icon">arrow_forward_ios </span>
+      <span class="material-icons material-icons-outlined check__icon">arrow_forward_ios</span>
       <h3 class="side-heading label-text">Your Statistics</h3>
     </div>
   </label>
@@ -61,12 +61,13 @@
       <h3 class="side-heading label-text">Problems List</h3>
     </div>
     <button class="btn btn-export" id="export-to-csv">
-      <span class="material-icons material-icons-outlined">unarchive </span>
+      <span class="material-icons material-icons-outlined">unarchive</span>
       <span class="btn__text">Export as CSV</span>
     </button>
   </label>
   <div class="table-wrapper">
-    <div class="search" id="search-div"><input type="text" class="search__input" required id="search-text">
+    <div class="search" id="search-div">
+      <input type="text" class="search__input" placeholder="Search" required id="search-text">
       <button id="search-btn" class="btn btn-icon-only search__btn">
         <span class="material-icons material-icons-outlined">search</span>
       </button>
@@ -80,7 +81,10 @@
           <option value="hard">Hard</option>
         </select>
         <input type="date" id="problem-date" />
-        <button class="btn" id="clear-btn"> Clear </button>
+        <button class="btn btn-actions btn-reset" id="clear-btn">
+          <span class="material-icons material-icons-outlined">clear </span>
+          <span class="btn__text">Clear</span>
+        </button>
       </div>
       <tr class="table__heading" id="table-heading">
         <td>Name</td>
