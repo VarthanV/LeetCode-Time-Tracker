@@ -103,7 +103,7 @@ difficultySelectorDiv.addEventListener("change", function () {
       renderItem(hardProblems, selectedValue);
     }
   }
-  else{
+  else {
     renderWithRespectToDate();
   }
 });
@@ -435,6 +435,7 @@ function search() {
     renderItem(searches);
   } else {
     const spanElem = document.createElement("span");
+    spanElem.className = "no-items";
     spanElem.innerText = "Oops ! Nothing found";
     tableDiv.appendChild(spanElem);
   }
