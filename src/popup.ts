@@ -1,5 +1,6 @@
 import { Problem, Action } from "./types";
 import { Chart } from "chart.js";
+
 //Dev Stuffs
 
 // @ts-ignore
@@ -12,7 +13,7 @@ const problemTitleDiv = document.querySelector(
   "#problem-title"
 ) as HTMLSpanElement;
 const difficultyDiv = document.querySelector(
-  "#difficulty-div"
+  "#problem-difficulty"
 ) as HTMLSpanElement;
 const tableDiv = document.querySelector("#problem-table");
 const difficultySelectorDiv = document.querySelector(
@@ -26,6 +27,10 @@ const searchQueryDiv = document.getElementById(
   "search-text"
 ) as HTMLInputElement;
 
+const datePickerDiv = document.querySelector(
+  "#problem-date"
+) as HTMLInputElement;
+
 // Buttons Div
 
 const startBtn = document.getElementById("start") as HTMLButtonElement;
@@ -35,12 +40,17 @@ const exportToCSVButton = document.getElementById(
   "export-to-csv"
 ) as HTMLButtonElement;
 const searchBtn = document.getElementById("search-btn") as HTMLButtonElement;
+const clearBtn = document.getElementById("clear-btn") as HTMLButtonElement;
 // Get Title of the Current Page and URL
 const backgroundPage = chrome.extension.getBackgroundPage();
+// Variable Declarations
+
 let easyProblems;
 let mediumProblems;
 let hardProblems;
 let selectedValue = "all";
+let selectedDate = null;
+let dateString = "";
 //  Background Page
 
 /*
@@ -82,15 +92,72 @@ difficultySelectorDiv.addEventListener("change", function () {
   selectedValue =
     difficultySelectorDiv.options[difficultySelectorDiv.selectedIndex].value;
   clearUI();
-  if (selectedValue == "all") {
-    renderTable();
-  } else if (selectedValue === "easy") {
-    renderItem(easyProblems, selectedValue);
-  } else if (selectedValue === "medium") {
-    renderItem(mediumProblems, selectedValue);
-  } else if (selectedValue == "hard") {
-    renderItem(hardProblems, selectedValue);
+  if (selectedDate === null) {
+    if (selectedValue == "all") {
+      renderTable();
+    } else if (selectedValue === "easy") {
+      renderItem(easyProblems, selectedValue);
+    } else if (selectedValue === "medium") {
+      renderItem(mediumProblems, selectedValue);
+    } else if (selectedValue == "hard") {
+      renderItem(hardProblems, selectedValue);
+    }
   }
+  else{
+    renderWithRespectToDate();
+  }
+});
+datePickerDiv.addEventListener("change", function () {
+  selectedDate = datePickerDiv.value;
+  selectedDate = new Date(selectedDate);
+  let dd = String(selectedDate.getDate()).padStart(2, "0");
+  //@ts-ignore
+  let mm = String(selectedDate.getMonth() + 1).padStart(2, "0"); //January is 0!
+  let yyyy = selectedDate.getFullYear();
+
+  dateString = dd + "/" + mm + "/" + yyyy;
+  renderWithRespectToDate();
+});
+
+function renderWithRespectToDate() {
+  let easyProblemsRender = easyProblems.filter((item) => {
+    return item.date === dateString;
+  });
+  let mediumProblemsRender = mediumProblems.filter((item) => {
+    return item.date === dateString;
+  });
+
+  let hardProblemsRender = hardProblems.filter((item) => {
+    return item.date === dateString;
+  });
+  clearUI();
+  if (selectedValue === "all") {
+    renderItem(easyProblemsRender, "easy");
+    renderItem(mediumProblemsRender, "medium");
+    renderItem(hardProblemsRender, "hard");
+  } else if (selectedValue === "easy") {
+    renderItem(easyProblemsRender, "easy");
+  } else if (selectedValue === "medium") {
+    renderItem(mediumProblemsRender, "medium");
+  } else if (selectedValue === "hard") {
+    renderItem(hardProblemsRender, "hard");
+  }
+}
+// Search Triggers when enter key is pressed
+searchQueryDiv.addEventListener("keypress", function (e) {
+  if (e.key === "Enter") {
+    if (searchQueryDiv.value) {
+      search();
+    }
+  }
+});
+clearBtn.addEventListener("click", function () {
+  selectedDate = null;
+  datePickerDiv.value = null;
+  selectedValue = "all";
+  difficultySelectorDiv.value = "all";
+  clearUI();
+  renderTable();
 });
 
 /*
@@ -115,6 +182,8 @@ function renderTimerPage() {
   chrome.runtime.sendMessage(action, function (response: Problem) {
     problemDict.problemName = response.problemName;
     problemDict.difficulty = response.difficulty;
+    console.log(problemDict);
+
     if (problemDict.problemName) {
       let name = problemDict.problemName.split(".")[1];
       let difficulty = problemDict.difficulty;
@@ -131,9 +200,15 @@ function renderTimerPage() {
   };
   chrome.runtime.sendMessage(timerAction, function (response) {
     if (response.startstop == 1) {
-      document.getElementById("start").innerHTML = "Pause";
+      document.getElementById(
+        "start"
+      ).innerHTML = `<span class="material-icons material-icons-outlined">pause</span>
+        <span class="btn-txt">Pause</span>`;
     } else if (response.startstop == 2) {
-      document.getElementById("start").innerHTML = "Start";
+      document.getElementById(
+        "start"
+      ).innerHTML = `<span class="material-icons material-icons-outlined">arrow_forward_ios </span>
+        <span class="btn-txt">Start</span>`;
     }
   });
 
@@ -193,7 +268,7 @@ function clearUI() {
 }
 
 /*
-Renders Chart 
+Renders Chart
 
 */
 //@ts-ignore
@@ -239,7 +314,7 @@ function renderChart() {
 }
 
 /*
-Renders Table 
+Renders Table
 */
 function renderTable() {
   const items = localStorage.getItem("leetCodeExtensionDetails");
@@ -290,16 +365,13 @@ function renderItem(items, classname?) {
 }
 
 /*
-CSV Helpers 
+CSV Helpers
 Credits : https://jsfiddle.net/gengns/j1jm2tjx/
 
 */
 function download_csv(csv, filename) {
-let csvFile;
-let downloadLink;
-
-
-
+  let csvFile;
+  let downloadLink;
 
   // CSV FILE
   csvFile = new Blob([csv], { type: "text/csv" });
@@ -321,35 +393,29 @@ let downloadLink;
 
   // Lanzamos
   downloadLink.click();
-
 }
-
-
-
 
 function export_table_to_csv(html, filename) {
   var csv = [];
-  let tRowsLength = tableDiv.querySelectorAll('tr').length;
+  let tRowsLength = tableDiv.querySelectorAll("tr").length;
   var rows = document.querySelectorAll("table tr");
-  if(tRowsLength > 0){
-  for (var i = 0; i < rows.length; i++) {
-    var row = [],
-      cols = rows[i].querySelectorAll("td, th");
+  if (tRowsLength > 0) {
+    for (var i = 0; i < rows.length; i++) {
+      var row = [],
+        cols = rows[i].querySelectorAll("td, th");
 
-    for (var j = 0; j < cols.length; j++)
-      //@ts-ignore
-      row.push(cols[j].innerText);
+      for (var j = 0; j < cols.length; j++)
+        //@ts-ignore
+        row.push(cols[j].innerText);
 
-    csv.push(row.join(","));
+      csv.push(row.join(","));
+    }
+
+    // Download CSV
+    download_csv(csv.join("\n"), filename);
+  } else {
+    alert("Nothing to Export");
   }
-
-  // Download CSV
-  download_csv(csv.join("\n"), filename);
-
-}
-else{
-  alert("Nothing to Export")
-}
 }
 
 // Search Logic
@@ -364,14 +430,13 @@ function search() {
   let searches = problems.filter((item) => {
     return item.problemName.toLowerCase().includes(query);
   });
-  clearUI()
+  clearUI();
   if (searches.length > 0) {
-  
     renderItem(searches);
-  }
-  else{
-    const spanElem  =document.createElement('span');
-    spanElem.innerText = 'Oops ! Nothing found'
+  } else {
+    const spanElem = document.createElement("span");
+    spanElem.innerText = "Oops ! Nothing found";
     tableDiv.appendChild(spanElem);
   }
+  searchQueryDiv.value = "";
 }
