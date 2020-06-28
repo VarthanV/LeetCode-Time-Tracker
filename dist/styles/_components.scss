@@ -21,19 +21,20 @@
     padding: .3rem .8rem;
     text-transform: uppercase;
     letter-spacing: .3rem;
-
-    &-easy {
-      background-color: $color-emerald;
-    }
-
-    &-medium {
-      background-color: $color-amber;
-    }
-
-    &-hard {
-      background-color: $color-ruby;
-    }
   }
+}
+
+// PILLS
+.easy {
+  background-color: $color-emerald;
+}
+
+.medium {
+  background-color: $color-amber;
+}
+
+.hard {
+  background-color: $color-ruby;
 }
 
 .timer-wrapper {
