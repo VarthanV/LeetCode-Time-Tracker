@@ -1,0 +1,19 @@
+.search {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
+
+  &__input {
+    flex-grow: 1;
+    margin-left: 0;
+  }
+
+  &__btn {
+
+    &,
+    &:active,
+    &:link {
+      @include buttonStyle($color-secondary)
+    }
+  }
+}

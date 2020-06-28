@@ -12,6 +12,7 @@ html {
   scroll-behavior: smooth;
   min-width: 400px;
   max-width: 520px;
+  overflow-y: overlay;
 }
 
 body {
@@ -23,21 +24,34 @@ textarea,
 select,
 label {
   font: $font-weight-default $font-size-default $font-family-default;
+  background-color: transparent;
+  color: inherit;
   padding: .6rem;
   margin: 1rem;
   border: 1px solid $color-gray-6;
   border-radius: $size-subtle-border;
   outline: none;
+  transition: border-color .2s;
+
+  &:hover,
+  &:active,
+  &:focus {
+    border-color: $color-primary;
+  }
 }
 
-button {
-  font-family: $font-family-default;
+label {
+  border: none;
 }
 
 /* Typography */
 
 body {
   font: $font-weight-default $font-size-default $font-family-default;
+}
+
+button {
+  font-family: $font-family-default;
 }
 
 h1 {
@@ -47,7 +61,7 @@ h1 {
 
 h2 {
   font-weight: 500;
-  font-size: 4rem;
+  font-size: 3.5rem;
 }
 
 h3,
@@ -60,22 +74,48 @@ h6 {
   font-weight: 500;
 }
 
-/* Custom scroll bar */
-::-webkit-scrollbar {
-  width: 1rem;
+.title {
+  font-size: 1.6rem;
+  font-weight: 500;
+  background-image: linear-gradient(to bottom right, $color-primary, $color-secondary);
+  padding: 1rem;
+  color: $color-white;
 }
 
-/* Track */
+/* Date Picker */
+
+::-webkit-datetime-edit-text {
+  text-transform: uppercase;
+  padding: 0 .3em;
+}
+
+::-webkit-datetime-edit-day-field {
+  text-transform: uppercase;
+}
+
+::-webkit-datetime-edit-year-field {
+  text-transform: uppercase;
+}
+
+::-webkit-inner-spin-button {
+  display: none;
+}
+
+/* Hide scroll bar */
+::-webkit-scrollbar {
+  width: .5rem;
+  // display: none;
+}
+
 ::-webkit-scrollbar-track {
   box-shadow: inset 0 0 6px rgba($color-black, .3);
   border-radius: $size-subtle-border;
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
   border-radius: $size-subtle-border;
   background: darken($color-gray-3, 10%);
-  // box-shadow: inset 0 0 6px rgba($color-black, .5);
+  box-shadow: inset 0 0 6px rgba($color-black, .5);
 }
 
 ::-webkit-scrollbar-thumb:hover {

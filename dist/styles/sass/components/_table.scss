@@ -1,0 +1,99 @@
+.table-wrapper {
+  padding: 0;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+tbody,
+th,
+td {
+  padding: 1rem;
+  margin: 1rem auto;
+  text-align: center;
+  width: 100%;
+}
+
+tr {
+  &:nth-child(even) {
+    background-color: rgba($color-gray-5, 0.5);
+  }
+}
+
+.table {
+  display: block;
+  padding: 1rem;
+  width: 100%;
+  margin: auto;
+
+  &__heading {
+    text-transform: uppercase;
+    color: $color-white;
+    background-color: rgba($color-primary, .9);
+  }
+
+  &__body {
+
+    // Colorize in table
+    .easy {
+      color: $color-emerald;
+    }
+
+    .medium {
+      color: $color-amber;
+    }
+
+    .hard {
+      color: $color-ruby;
+    }
+  }
+
+  a {
+
+    &:link,
+    &:visited {
+      text-decoration: none;
+      transition: all .2s;
+    }
+
+    &:hover {
+
+      &::after {
+        padding-left: .5rem;
+        font-family: 'Material Icons';
+        content: "open_in_new";
+        font-size: 1.6rem;
+      }
+
+      color: $color-primary;
+    }
+  }
+}
+
+.table-wrapper {
+  overflow: auto;
+  opacity: 0;
+  max-height: 0;
+  transition: all .4s;
+}
+
+.check-table:not(:checked)~.table-wrapper {
+  opacity: 0;
+  max-height: 0;
+}
+
+.check-table:checked~.table-wrapper {
+  opacity: 1;
+  max-height: 250rem;
+}
+
+.no-items {
+  position: absolute;
+  bottom: auto;
+  left: 0;
+  width: 100%;
+  margin: auto;
+  height: 5rem;
+  padding: 1rem;
+}

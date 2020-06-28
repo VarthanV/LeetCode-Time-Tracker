@@ -1,0 +1,31 @@
+.timer-wrapper {
+  background-color: $color-pop-gray-1;
+  padding: 2rem;
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+
+  .actions {
+    display: flex;
+    justify-content: center;
+  }
+
+  .timer {
+    font-size: 4rem;
+
+    &>span {
+      display: inline-block;
+    }
+
+    #sec {
+      width: 4rem;
+      font-size: 3rem;
+    }
+
+    #milisec {
+      width: 2rem;
+      margin-left: .5rem;
+      font-size: 1.5rem;
+    }
+  }
+}

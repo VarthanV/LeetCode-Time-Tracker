@@ -18,11 +18,9 @@
   <h1 class="title text-center">LeetCode Timer</h1>
   <!-- Options Page -->
   <div class="pages-block" id="options-block"></div>
-  <div class="current-problem"> <span class="current-problem__name" id="problem-title"></span>
-    <div>
-      <span class="current-problem__difficulty current-problem__difficulty-easy"
-        id="problem-difficulty">Difficulty</span>
-      </div>
+  <div class="current-problem">
+    <span class="current-problem__name" id="problem-title"></span>
+    <span class="current-problem__difficulty" id="problem-difficulty"></span>
   </div>
   <div class="timer-wrapper text-center">
     <div class="timer" id="timer-div">
@@ -34,46 +32,64 @@
     <div class="actions" id="button-div">
       <button class="btn btn-actions btn-start" id="start">
         <span class="material-icons material-icons-outlined">arrow_forward_ios </span>
-        <span class="btn-txt">Start</span>
+        <span class="btn__text">Start</span>
       </button>
       <button class="btn btn-actions btn-reset" id="reset">
         <span class="material-icons material-icons-outlined">update </span>
-        <span class="btn-txt">Reset</span>
+        <span class="btn__text">Reset</span>
       </button>
       <button class="btn btn-actions btn-save" id="save">
         <span class="material-icons material-icons-outlined">save </span>
-        <span class="btn-txt">Save</span>
+        <span class="btn__text">Save</span>
       </button>
     </div>
   </div>
+  <input type="checkbox" name="chart-check" id="chart-check" class="check check-chart">
+  <label for="chart-check" class="check__label">
+    <div class="check__label__title">
+      <span class="material-icons material-icons-outlined check__icon">arrow_forward_ios</span>
+      <h3 class="side-heading label-text">Your Statistics</h3>
+    </div>
+  </label>
   <div class="chart-wrapper">
-    <div class="button-wrapper">
-      <h3 class="side-heading">Your Statistics</h3>
-      <div></div>
-    </div>
-    <div class="chart-div"><canvas id="myChart" width="200" height="200"></canvas></div>
+    <div class="chart-div"><canvas id="myChart"></canvas></div>
   </div>
-  <div class="table-wrapper">
-    <div class="section-title" id="name-wrapper">
-      <h3 class="side-heading">Problems List</h3><button class="btn" id="export-to-csv"><span
-          class="material-icons material-icons-outlined">unarchive </span><span class="btn-txt">Export as
-          CSV</span></button></button>
+  <input type="checkbox" name="table-check" id="table-check" class="check check-table">
+  <label for="table-check" class="check__label">
+    <div class="check__label__title">
+      <span class="material-icons material-icons-outlined check__icon">arrow_forward_ios </span>
+      <h3 class="side-heading label-text">Problems List</h3>
     </div>
-    <div class="search" id="search-div"><input type="text" class="search__input" required id="search-text"><button
-        id="search-btn" class="btn btn-icon-only search__btn"><span
-          class="material-icons material-icons-outlined">search </span></button></div>
-    <table class="table"><select id="difficulty-selector">
-        <option value="all">All </option>
-        <option value="easy">Easy</option>
-        <option value="medium">Medium </option>
-        <option value="hard">Hard</option>
-      </select>
-      <input type="date" id="problem-date"/>
-      <button class="btn" id="clear-btn"> Clear </button>
+    <button class="btn btn-export" id="export-to-csv">
+      <span class="material-icons material-icons-outlined">unarchive</span>
+      <span class="btn__text">Export as CSV</span>
+    </button>
+  </label>
+  <div class="table-wrapper">
+    <div class="search" id="search-div">
+      <input type="text" class="search__input" placeholder="Search" required id="search-text">
+      <button id="search-btn" class="btn btn-icon-only search__btn">
+        <span class="material-icons material-icons-outlined">search</span>
+      </button>
+    </div>
+    <table class="table">
+      <div class="fill-up">
+        <select class="select select-difficulty" id="difficulty-selector">
+          <option value="all">All </option>
+          <option value="easy">Easy</option>
+          <option value="medium">Medium </option>
+          <option value="hard">Hard</option>
+        </select>
+        <input type="date" id="problem-date" />
+        <button class="btn btn-actions btn-reset" id="clear-btn">
+          <span class="material-icons material-icons-outlined">clear </span>
+          <span class="btn__text">Clear</span>
+        </button>
+      </div>
       <tr class="table__heading" id="table-heading">
         <td>Name</td>
         <td>Difficulty</td>
-        <td>TimeTaken</td>
+        <td>Time Taken</td>
         <td>Date Solved</td>
       </tr>
       <tbody class="table__body" id="problem-table"></tbody>
